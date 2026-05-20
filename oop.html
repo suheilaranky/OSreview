@@ -3,457 +3,620 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>C++ OOP Emergency Exam Cram - English + Arabic</title>
+<title>C++ OOP Detailed Simple Exam Cram - English + Arabic</title>
 <style>
-  :root {
-    --bg: #0f172a;
-    --panel: #111827;
-    --card: #1f2937;
-    --text: #f8fafc;
-    --muted: #cbd5e1;
-    --accent: #38bdf8;
-    --danger: #fb7185;
-    --ok: #34d399;
-    --warn: #fbbf24;
-    --code: #020617;
-    --border: #334155;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.55;
-    background: var(--bg);
-    color: var(--text);
-  }
-  header {
-    padding: 28px 18px;
-    text-align: center;
-    background: linear-gradient(135deg, #111827, #0f172a 60%, #075985);
-    border-bottom: 1px solid var(--border);
-  }
-  h1 { margin: 0 0 8px; font-size: 2rem; }
-  h2 {
-    margin-top: 34px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--accent);
-    color: #e0f2fe;
-  }
-  h3 { color: #bae6fd; margin-top: 24px; }
-  h4 { color: #fde68a; margin-bottom: 6px; }
-  main { max-width: 1100px; margin: 0 auto; padding: 22px 16px 80px; }
-  .rule {
-    background: #450a0a;
-    border: 1px solid #f87171;
-    padding: 12px 14px;
-    border-radius: 10px;
-    font-weight: bold;
-  }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,.18);
-  }
-  .cheat {
-    background: #082f49;
-    border-color: #38bdf8;
-  }
-  .timer {
-    display: inline-block;
-    margin: 6px 4px;
-    padding: 6px 10px;
-    border-radius: 999px;
-    background: #172554;
-    color: #bfdbfe;
-    font-weight: bold;
-  }
-  code, pre {
-    font-family: Consolas, Monaco, "Courier New", monospace;
-  }
-  pre {
-    background: var(--code);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px;
-    overflow-x: auto;
-    color: #d1fae5;
-  }
-  .trap {
-    background: #431407;
-    border-left: 5px solid var(--warn);
-    padding: 10px 12px;
-    border-radius: 8px;
-    margin: 10px 0;
-  }
-  .must {
-    background: #052e16;
-    border-left: 5px solid var(--ok);
-    padding: 10px 12px;
-    border-radius: 8px;
-    margin: 10px 0;
-  }
-  .bad {
-    background: #4c0519;
-    border-left: 5px solid var(--danger);
-    padding: 10px 12px;
-    border-radius: 8px;
-    margin: 10px 0;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #111827;
-    margin: 12px 0;
-  }
-  th, td {
-    border: 1px solid var(--border);
-    padding: 9px;
-    vertical-align: top;
-  }
-  th { background: #075985; color: white; }
-  a { color: #7dd3fc; }
-  .small { color: var(--muted); font-size: .95rem; }
-  .ar {
-    direction: rtl;
-    text-align: right;
-    font-family: "Tahoma", "Arial", sans-serif;
-    color: #e0f2fe;
-    background: rgba(56,189,248,.08);
-    border-right: 4px solid #38bdf8;
-    padding: 10px 12px;
-    border-radius: 10px;
-    margin: 10px 0;
-  }
-  .ar code, .ar pre { direction: ltr; text-align: left; }
-  .print-note { color: #fde68a; }
-  button {
-    background: var(--accent);
-    color: #00111f;
-    border: none;
-    padding: 10px 14px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    margin: 6px 4px 6px 0;
-  }
-  button.secondary { background: #64748b; color: white; }
-  input[type="text"], textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    background: #020617;
-    color: var(--text);
-    margin-top: 8px;
-  }
-  .answer-box {
-    margin-top: 12px;
-    padding: 12px;
-    border-radius: 10px;
-    background: #0f172a;
-    border: 1px solid var(--border);
-    display: none;
-  }
-  .question-card { border: 2px solid #38bdf8; }
-  .memorize li { margin-bottom: 10px; }
-  @media print {
-    body { background: white; color: black; }
-    header, .rule, .question-card button, input, textarea { display: none; }
-    main { max-width: 100%; }
-    .card, pre, table { break-inside: avoid; background: white; color: black; border-color: #777; }
-    h2 { color: black; border-bottom: 2px solid black; }
-    h3, h4 { color: black; }
-  }
+:root{--bg:#0f172a;--card:#1f2937;--text:#f8fafc;--muted:#cbd5e1;--accent:#38bdf8;--warn:#fbbf24;--danger:#fb7185;--ok:#34d399;--code:#020617;--border:#334155}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+header{padding:30px 18px;text-align:center;background:linear-gradient(135deg,#111827,#0f172a 55%,#075985);border-bottom:1px solid var(--border)}
+h1{margin:0 0 8px;font-size:2rem}
+h2{margin-top:34px;padding-bottom:8px;border-bottom:2px solid var(--accent);color:#e0f2fe}
+h3{color:#bae6fd;margin-top:22px}
+h4{color:#fde68a;margin-bottom:6px}
+main{max-width:1180px;margin:0 auto;padding:22px 16px 90px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin:14px 0;box-shadow:0 10px 25px rgba(0,0,0,.18)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:14px}
+.rule{background:#450a0a;border:1px solid #f87171;padding:14px;border-radius:12px;font-weight:bold}
+.timer{display:inline-block;margin:6px 4px;padding:6px 10px;border-radius:999px;background:#172554;color:#bfdbfe;font-weight:bold}
+.ar{direction:rtl;text-align:right;font-family:Tahoma,Arial,sans-serif;color:#e0f2fe;background:rgba(56,189,248,.08);border-right:4px solid #38bdf8;padding:10px 12px;border-radius:10px;margin:10px 0}
+.ar code,.ar pre{direction:ltr;text-align:left}
+.simple{background:#052e16;border-left:5px solid var(--ok);padding:10px 12px;border-radius:10px;margin:10px 0}
+.trap{background:#431407;border-left:5px solid var(--warn);padding:10px 12px;border-radius:10px;margin:10px 0}
+.bad{background:#4c0519;border-left:5px solid var(--danger);padding:10px 12px;border-radius:10px;margin:10px 0}
+.must{background:#082f49;border-left:5px solid var(--accent);padding:10px 12px;border-radius:10px;margin:10px 0}
+code,pre{font-family:Consolas,Monaco,"Courier New",monospace}
+pre{background:var(--code);border:1px solid var(--border);border-radius:12px;padding:14px;overflow-x:auto;color:#d1fae5}
+table{width:100%;border-collapse:collapse;background:#111827;margin:12px 0}
+th,td{border:1px solid var(--border);padding:9px;vertical-align:top}
+th{background:#075985;color:white}
+a{color:#7dd3fc}
+.small{color:var(--muted);font-size:.95rem}
+button{background:var(--accent);color:#00111f;border:none;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:bold;margin:6px 4px 6px 0}
+button.secondary{background:#64748b;color:white}
+input[type=text],textarea{width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:#020617;color:var(--text);margin-top:8px}
+.answer-box{margin-top:12px;padding:12px;border-radius:10px;background:#0f172a;border:1px solid var(--border);display:none}
+.question-card{border:2px solid #38bdf8}
+.toc a{display:inline-block;margin:4px 8px 4px 0;padding:6px 10px;background:#172554;border-radius:999px;text-decoration:none}
+@media print{
+ body{background:white;color:black}
+ header,.toc,.question-card button,input,textarea{display:none}
+ main{max-width:100%}
+ .card,pre,table{break-inside:avoid;background:white;color:black;border-color:#777}
+ h2,h3,h4{color:black}
+ .ar,.simple,.trap,.bad,.must{background:white;color:black;border-color:#555}
+}
 </style>
 </head>
 <body>
 <header>
-  <h1>C++ Object-Oriented Programming: Emergency Exam Cram</h1>
-  <p>English + Arabic explanation | شرح عربي وإنجليزي سريع للامتحان</p>
-  <p>Strict 3 to 4 hour plan based on your 11 uploaded lectures</p>
-  <span class="timer">Phase 1: 30 min</span>
-  <span class="timer">Phase 2: 90 min</span>
-  <span class="timer">Phase 3: 60 min</span>
-  <span class="timer">Phase 4: 30 min</span>
+  <h1>C++ OOP Emergency Exam Cram</h1>
+  <p>More detailed, very simple, English + Arabic</p>
+  <span class="timer">3-4 Hours</span>
+  <span class="timer">Exam Focus</span>
+  <span class="timer">Beginner Friendly</span>
 </header>
 
 <main>
 <section class="rule">
-  STRICT RULE: Do not try to understand every slide. Memorize syntax, traps, and exam patterns. If you spend more than 3 minutes on one idea, move on.
-  <div class="ar"><b>قاعدة صارمة:</b> لا تحاول فهم كل سلايد بالتفصيل. احفظ التعاريف، الصيغ البرمجية، والأخطاء الشائعة. إذا أخذت فكرة أكثر من 3 دقائق، انتقل فوراً.</div>
+  New rule: learn in layers. First understand the idea, then memorize the syntax, then solve tiny questions.
+  <div class="ar">قاعدة جديدة: تعلم على مراحل. أولاً افهم الفكرة، ثم احفظ الصيغة، ثم حل أسئلة صغيرة.</div>
 </section>
 
-<section id="phase1">
-  <h2>Phase 1 — First 30 Minutes: The Skeleton Map</h2>
-
-  <div class="card cheat">
-    <h3>1-Page Cheat Sheet: Absolute Essentials</h3>
-    <table>
-      <tr><th>Concept</th><th>Exam Definition</th><th>C++ Memory Hook</th></tr>
-      <tr>
-        <td><b>Class</b></td>
-        <td>A blueprint/user-defined type that groups data members and member functions.</td>
-        <td><code>class Student { int id; public: void set(); };</code></td>
-      </tr>
-      <tr>
-        <td><b>Object</b></td>
-        <td>An instance created from a class. Each object has its own data.</td>
-        <td><code>Student s1;</code></td>
-      </tr>
-      <tr>
-        <td><b>Encapsulation</b></td>
-        <td>Packing data and functions into one unit/class.</td>
-        <td>Put variables + functions inside the class.</td>
-      </tr>
-      <tr>
-        <td><b>Data Hiding</b></td>
-        <td>Restricting direct access to data using private/protected.</td>
-        <td><code>private: int marks;</code> then use setters/getters.</td>
-      </tr>
-      <tr>
-        <td><b>Inheritance</b></td>
-        <td>A derived class acquires properties/functions from a base class.</td>
-        <td><code>class Car : public Vehicle { };</code></td>
-      </tr>
-      <tr>
-        <td><b>Polymorphism</b></td>
-        <td>Many forms: the same interface/function/operator behaves differently.</td>
-        <td>Overloading at compile time; virtual functions at runtime.</td>
-      </tr>
-      <tr>
-        <td><b>Abstraction</b></td>
-        <td>Showing important details and hiding unnecessary details.</td>
-        <td>Use public methods; hide implementation in private data/functions.</td>
-      </tr>
-    </table>
-
-    <div class="ar">
-      <h3>ملخص عربي سريع: الأساسيات المطلقة</h3>
-      <ul>
-        <li><b>Class / الصنف:</b> قالب أو مخطط نستخدمه لإنشاء كائنات. يحتوي بيانات ودوال.</li>
-        <li><b>Object / الكائن:</b> نسخة حقيقية من الصنف، مثل <code>Student s1;</code>.</li>
-        <li><b>Encapsulation / التغليف:</b> جمع البيانات والدوال داخل وحدة واحدة وهي الصنف.</li>
-        <li><b>Data Hiding / إخفاء البيانات:</b> منع الوصول المباشر للبيانات باستخدام <code>private</code> أو <code>protected</code>.</li>
-        <li><b>Inheritance / الوراثة:</b> صنف ابن يرث خصائص ودوال من صنف أب.</li>
-        <li><b>Polymorphism / تعدد الأشكال:</b> نفس الاسم أو الواجهة تعمل بأشكال مختلفة حسب النوع أو الكائن.</li>
-        <li><b>Abstraction / التجريد:</b> إظهار المهم للمستخدم وإخفاء التفاصيل الداخلية.</li>
-      </ul>
-    </div>
-
-    <h3>The 3 Most Exam-Likely Topics from These Lectures</h3>
-    <ol>
-      <li><b>Classes, Objects, Encapsulation, Constructors/Destructors, Static Data</b></li>
-      <li><b>Function Overloading + Operator Overloading + Templates</b></li>
-      <li><b>Inheritance + Virtual Functions/Runtime Polymorphism + Friend Functions</b></li>
-    </ol>
-    <div class="ar">
-      <b>أهم 3 مواضيع غالباً في الامتحان:</b>
-      <ol>
-        <li>الأصناف والكائنات والتغليف والـ Constructors/Destructors والـ Static.</li>
-        <li>التحميل الزائد للدوال والمؤثرات والقوالب Templates.</li>
-        <li>الوراثة والدوال الافتراضية وتعدد الأشكال و Friend Functions.</li>
-      </ol>
-    </div>
-  </div>
+<section class="card toc">
+  <h2>Table of Contents</h2>
+  <a href="#plan">Study Plan</a>
+  <a href="#basics">OOP Basics</a>
+  <a href="#classes">Classes</a>
+  <a href="#constructors">Constructors</a>
+  <a href="#static">Static</a>
+  <a href="#overloading">Overloading</a>
+  <a href="#operators">Operator Overloading</a>
+  <a href="#inheritance">Inheritance</a>
+  <a href="#polymorphism">Polymorphism</a>
+  <a href="#friends">Friend</a>
+  <a href="#templates">Templates</a>
+  <a href="#practice">Practice</a>
 </section>
 
-<section id="phase2">
-  <h2>Phase 2 — Next 90 Minutes: Deep Dive on Key Areas</h2>
+<section id="plan" class="card">
+<h2>Strict 4-Phase Plan</h2>
+<table>
+<tr><th>Time</th><th>What to do</th><th>Arabic</th></tr>
+<tr><td>0-30 min</td><td>Read the skeleton map and definitions only.</td><td>اقرأ الخريطة والتعاريف فقط.</td></tr>
+<tr><td>30-120 min</td><td>Study the main topics and type code examples.</td><td>ادرس المواضيع الأساسية واكتب الأمثلة بيدك.</td></tr>
+<tr><td>120-180 min</td><td>Answer questions without looking.</td><td>جاوب الأسئلة بدون النظر للإجابة.</td></tr>
+<tr><td>Last 30 min</td><td>Memorize syntax snippets and traps.</td><td>احفظ الصيغ والأخطاء الشائعة.</td></tr>
+</table>
+<div class="bad"><b>Do not read every slide now.</b> Your exam score will come from definitions, syntax, and recognizing traps.</div>
+<div class="ar">لا تقرأ كل السلايدات الآن. درجتك غالباً تأتي من التعاريف، الصيغ البرمجية، ومعرفة الأخطاء الشائعة.</div>
+</section>
 
-  <div class="card">
-    <h3>Topic 1: Classes, Objects, Encapsulation, Constructors, Static</h3>
-    <h4>Explain Like I’m 5</h4>
-    <p>A class is a cookie cutter. An object is the cookie. The class says what every cookie has. Each object gets its own values.</p>
-    <p>Private data is like putting your toys in a locked box. Other people cannot touch them directly. They must ask through public functions.</p>
-    <div class="ar">
-      <b>بالعربي ببساطة:</b> الصنف مثل قالب البسكويت، والكائن هو البسكويتة نفسها. الصنف يحدد الشكل العام، وكل كائن له بياناته الخاصة.
-      البيانات الخاصة <code>private</code> مثل صندوق مغلق؛ لا يمكن تعديلها مباشرة من خارج الصنف، بل عن طريق دوال عامة مثل <code>setData()</code> و <code>getData()</code>.
-    </div>
+<section id="basics">
+<h2>1. OOP Basics — Very Simple</h2>
 
-    <h4>Simple Code Example</h4>
+<div class="grid">
+<div class="card">
+<h3>Class</h3>
+<p><b>English:</b> A class is a blueprint. It describes what data and functions an object will have.</p>
+<div class="ar"><b>بالعربي:</b> الصنف هو قالب أو مخطط. يحدد البيانات والدوال التي سيملكها الكائن.</div>
+<pre><code>class Student {
+private:
+    int id;
+public:
+    void setId(int x) { id = x; }
+};</code></pre>
+<div class="simple"><b>Memory:</b> class = design, object = real thing.</div>
+</div>
+
+<div class="card">
+<h3>Object</h3>
+<p><b>English:</b> An object is a real instance created from a class.</p>
+<div class="ar"><b>بالعربي:</b> الكائن هو نسخة حقيقية تم إنشاؤها من الصنف.</div>
+<pre><code>Student s1;   // object from Student class
+Student s2;   // another object</code></pre>
+<div class="simple">Each object has its own data. <span class="ar">كل كائن له بياناته الخاصة.</span></div>
+</div>
+
+<div class="card">
+<h3>Encapsulation</h3>
+<p><b>English:</b> Put data and functions together inside one class.</p>
+<div class="ar"><b>بالعربي:</b> جمع البيانات والدوال داخل صنف واحد.</div>
+<pre><code>class BankAccount {
+private:
+    double balance;
+public:
+    void deposit(double amount) {
+        balance += amount;
+    }
+};</code></pre>
+</div>
+
+<div class="card">
+<h3>Data Hiding</h3>
+<p><b>English:</b> Hide data using <code>private</code>, then control access using public functions.</p>
+<div class="ar"><b>بالعربي:</b> نخفي البيانات باستخدام <code>private</code> ونسمح بالوصول لها عن طريق دوال <code>public</code>.</div>
+<div class="trap">Trap: <code>obj.privateVar</code> is illegal outside the class.</div>
+</div>
+
+<div class="card">
+<h3>Inheritance</h3>
+<p><b>English:</b> A derived class receives features from a base class.</p>
+<div class="ar"><b>بالعربي:</b> الصنف الابن يرث خصائص ودوال من الصنف الأب.</div>
+<pre><code>class Car : public Vehicle {
+};</code></pre>
+</div>
+
+<div class="card">
+<h3>Polymorphism</h3>
+<p><b>English:</b> Same name/interface, different behavior.</p>
+<div class="ar"><b>بالعربي:</b> نفس الاسم أو الواجهة، لكن سلوك مختلف حسب الكائن أو النوع.</div>
+<p>Examples: function overloading, operator overloading, virtual functions.</p>
+</div>
+</div>
+</section>
+
+<section id="classes">
+<h2>2. Classes and Objects</h2>
+<div class="card">
+<h3>General Syntax</h3>
+<pre><code>class ClassName {
+private:
+    // attributes / data members
+
+public:
+    // member functions
+};</code></pre>
+
+<div class="ar">
+<b>شرح:</b> داخل الصنف نضع البيانات والدوال. غالباً البيانات تكون <code>private</code> والدوال تكون <code>public</code>.
+لا تنسَ الفاصلة المنقوطة بعد قوس نهاية الصنف <code>};</code>.
+</div>
+
+<h3>Full Simple Example</h3>
 <pre><code>#include &lt;iostream&gt;
 #include &lt;string&gt;
 using namespace std;
 
 class Student {
 private:
-    int id;
+    int number;
     string name;
 
 public:
-    Student() {          // constructor
-        id = 0;
-        name = "none";
+    void setData(int n, string s) {
+        number = n;
+        name = s;
     }
 
-    Student(int i, string n) {  // overloaded constructor
-        id = i;
-        name = n;
+    void printData() {
+        cout &lt;&lt; "Number: " &lt;&lt; number &lt;&lt; endl;
+        cout &lt;&lt; "Name: " &lt;&lt; name &lt;&lt; endl;
     }
-
-    void setData(int i, string n) {
-        id = i;
-        name = n;
-    }
-
-    void getData() {
-        cout &lt;&lt; id &lt;&lt; " " &lt;&lt; name &lt;&lt; endl;
-    }
-
-    ~Student() { }       // destructor
 };
 
 int main() {
-    Student s1;
-    Student s2(10, "Ali");
-    s1.setData(1, "Sara");
-    s1.getData();
-    s2.getData();
+    Student st;
+    st.setData(1, "Ali");
+    st.printData();
+    return 0;
 }</code></pre>
 
-    <div class="trap">
-      <b>Exam traps:</b>
-      <div class="ar"><b>أخطاء امتحانية:</b> أعضاء <code>class</code> في C++ تكون <code>private</code> افتراضياً. لا تستطيع الوصول إلى البيانات الخاصة مباشرة. الـ Constructor بلا نوع إرجاع، والـ Destructor يبدأ بعلامة <code>~</code>.</div>
-      <ul>
-        <li>In C++, class members are <b>private by default</b>. Struct members are public by default.</li>
-        <li>You cannot access <code>s1.id</code> if <code>id</code> is private.</li>
-        <li>Constructor name must be exactly the same as the class name and has no return type.</li>
-        <li>Destructor is <code>~ClassName()</code>, has no return type, and usually no parameters.</li>
-        <li><code>static</code> class data is shared by all objects and must be defined outside the class: <code>int ClassName::x = 0;</code></li>
-      </ul>
-    </div>
-  </div>
+<table>
+<tr><th>Line</th><th>Meaning</th><th>Arabic</th></tr>
+<tr><td><code>class Student</code></td><td>Define a new class called Student.</td><td>تعريف صنف جديد اسمه Student.</td></tr>
+<tr><td><code>private</code></td><td>Only class functions can access these variables.</td><td>فقط دوال الصنف تستطيع الوصول لهذه المتغيرات.</td></tr>
+<tr><td><code>public</code></td><td>Can be called from main.</td><td>يمكن استدعاؤها من main.</td></tr>
+<tr><td><code>Student st;</code></td><td>Create object.</td><td>إنشاء كائن.</td></tr>
+<tr><td><code>st.setData(...)</code></td><td>Call member function using dot.</td><td>استدعاء دالة باستخدام النقطة.</td></tr>
+</table>
 
-  <div class="card">
-    <h3>Topic 2: Overloading, Operator Overloading, Templates</h3>
-    <h4>Explain Like I’m 5</h4>
-    <p>Overloading means one name can do different jobs depending on what you give it. Like “open”: open a door, open a book, open a file.</p>
-    <p>Operator overloading means teaching C++ what <code>+</code>, <code>++</code>, etc. mean for your own objects.</p>
-    <p>Templates are a magic mold: write one function/class that works for <code>int</code>, <code>double</code>, <code>char</code>, etc.</p>
-    <div class="ar">
-      <b>بالعربي ببساطة:</b> التحميل الزائد يعني نفس الاسم لكن استخدام مختلف حسب المعطيات.
-      مثال: دالة <code>sum</code> قد تجمع أعداد صحيحة أو أعداد عشرية.
-      أما Operator Overloading فهو أن نعلّم C++ معنى المؤثر <code>+</code> أو <code>++</code> عندما يستخدم مع كائنات من صنف صنعناه.
-      القوالب Templates تجعلنا نكتب كوداً عاماً يعمل مع أكثر من نوع بيانات.
-    </div>
+<div class="trap">
+<b>Common errors:</b>
+<ul>
+<li>Forgetting <code>;</code> after class.</li>
+<li>Trying to access private data directly.</li>
+<li>Writing <code>student st();</code> when you mean an object; that can be interpreted as a function declaration.</li>
+</ul>
+</div>
+<div class="ar">
+<b>أخطاء شائعة:</b> نسيان الفاصلة المنقوطة بعد الصنف، محاولة الوصول إلى private مباشرة، أو كتابة object بطريقة خاطئة.
+</div>
+</div>
+</section>
 
-    <h4>Simple Code Example: Function Overloading</h4>
+<section id="constructors">
+<h2>3. Constructors and Destructors</h2>
+<div class="card">
+<h3>Constructor</h3>
+<p>A constructor runs automatically when an object is created. It initializes data.</p>
+<div class="ar">الـ Constructor يعمل تلقائياً عند إنشاء الكائن. وظيفته إعطاء قيم ابتدائية للبيانات.</div>
+
+<pre><code>class Counter {
+private:
+    int count;
+
+public:
+    Counter() {      // constructor
+        count = 0;
+    }
+};</code></pre>
+
+<h3>Constructor Overloading</h3>
+<p>You can have more than one constructor if parameters are different.</p>
+<div class="ar">يمكن أن يكون للصنف أكثر من Constructor إذا اختلفت المعاملات.</div>
+<pre><code>class Student {
+private:
+    int id;
+
+public:
+    Student() {
+        id = 0;
+    }
+
+    Student(int x) {
+        id = x;
+    }
+};</code></pre>
+
+<h3>Destructor</h3>
+<p>A destructor runs automatically when an object is destroyed.</p>
+<div class="ar">الـ Destructor يعمل تلقائياً عند انتهاء الكائن أو تدميره.</div>
+<pre><code>class Student {
+public:
+    ~Student() {
+        cout &lt;&lt; "Object destroyed";
+    }
+};</code></pre>
+
+<div class="must">
+<b>Memorize:</b>
+<ul>
+<li>Constructor: same name as class, no return type.</li>
+<li>Destructor: <code>~ClassName()</code>, no return type, no parameters.</li>
+<li>Base constructor runs before derived constructor.</li>
+<li>Derived destructor runs before base destructor.</li>
+</ul>
+</div>
+<div class="ar">
+<b>احفظ:</b> الـ Constructor نفس اسم الصنف ولا يملك نوع إرجاع. الـ Destructor يبدأ بـ <code>~</code>. عند الوراثة، Constructor الأب يعمل أولاً، وDestructor الابن يعمل أولاً عند النهاية.
+</div>
+</div>
+</section>
+
+<section id="static">
+<h2>4. Static Class Data</h2>
+<div class="card">
+<p><b>English:</b> A normal data member belongs to each object. A static data member is shared by all objects.</p>
+<div class="ar"><b>بالعربي:</b> المتغير العادي لكل كائن نسخة خاصة منه. أما <code>static</code> فله نسخة واحدة مشتركة بين كل الكائنات.</div>
+
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Player {
+private:
+    static int count;
+
+public:
+    Player() {
+        count++;
+    }
+
+    int getCount() {
+        return count;
+    }
+};
+
+int Player::count = 0;
+
+int main() {
+    Player p1, p2, p3;
+    cout &lt;&lt; p1.getCount();  // 3
+}</code></pre>
+
+<div class="trap">
+<b>Exam trap:</b> You must define static data outside the class:
+<pre><code>int Player::count = 0;</code></pre>
+</div>
+<div class="ar">خطأ امتحاني مهم: لا يكفي إعلان static داخل الصنف، يجب تعريفه خارج الصنف باستخدام <code>ClassName::variable</code>.</div>
+</div>
+</section>
+
+<section id="overloading">
+<h2>5. Function Overloading</h2>
+<div class="card">
+<p><b>English:</b> Same function name, different parameter list.</p>
+<div class="ar"><b>بالعربي:</b> نفس اسم الدالة، لكن معاملات مختلفة.</div>
+
 <pre><code>int sum(int a, int b) {
     return a + b;
 }
 
 double sum(double a, double b) {
     return a + b;
+}
+
+int sum(int a, int b, int c) {
+    return a + b + c;
 }</code></pre>
 
-    <h4>Simple Code Example: Operator Overloading</h4>
+<table>
+<tr><th>Can overload?</th><th>Example</th><th>Reason</th></tr>
+<tr><td>Yes</td><td><code>sum(int,int)</code> and <code>sum(double,double)</code></td><td>Different type</td></tr>
+<tr><td>Yes</td><td><code>sum(int,int)</code> and <code>sum(int,int,int)</code></td><td>Different number</td></tr>
+<tr><td>Yes</td><td><code>fun(int,double)</code> and <code>fun(double,int)</code></td><td>Different order</td></tr>
+<tr><td>No</td><td><code>int fun(int)</code> and <code>double fun(int)</code></td><td>Return type only is not enough</td></tr>
+</table>
+
+<div class="ar">
+<b>قاعدة ذهبية:</b> التحميل الزائد لا يعتمد على نوع الإرجاع فقط. يجب أن تختلف المعاملات: النوع أو العدد أو الترتيب.
+</div>
+</div>
+</section>
+
+<section id="operators">
+<h2>6. Operator Overloading</h2>
+<div class="card">
+<p><b>English:</b> Operator overloading teaches an operator how to work with objects.</p>
+<div class="ar"><b>بالعربي:</b> التحميل الزائد للمؤثرات يعني أن نعلّم مؤثر مثل <code>+</code> أو <code>++</code> كيف يعمل مع كائنات من صنف صنعناه.</div>
+
+<h3>Unary Operator: ++</h3>
 <pre><code>class Counter {
 private:
     int count;
 
 public:
-    Counter() { count = 0; }
-    Counter(int c) { count = c; }
+    Counter() {
+        count = 0;
+    }
 
-    Counter operator++() {       // prefix ++obj
+    Counter(int c) {
+        count = c;
+    }
+
+    Counter operator++() {
         ++count;
-        return Counter(count);   // nameless temporary object
+        return Counter(count);
     }
 
     int getCount() {
         return count;
     }
-};</code></pre>
-
-    <h4>Simple Code Example: Function Template</h4>
-<pre><code>template &lt;class T&gt;
-T sum(T a, T b) {
-    return a + b;
-}</code></pre>
-
-    <div class="trap">
-      <b>Exam traps:</b>
-      <div class="ar"><b>أخطاء امتحانية:</b> لا يكفي اختلاف نوع الإرجاع لعمل Overloading. يجب اختلاف نوع أو عدد أو ترتيب المعاملات. إذا كان <code>operator++</code> يرجع <code>void</code> فلا تكتب <code>c2 = ++c1;</code>.</div>
-      <ul>
-        <li>Function overloading differs by <b>type, number, or order</b> of parameters. Return type alone is not enough.</li>
-        <li><code>void operator++()</code> can do <code>++c1;</code> but not <code>c2 = ++c1;</code> because it returns nothing.</li>
-        <li>Binary operator as member: left operand is the calling object, right operand is the parameter.</li>
-        <li>Some operators cannot be overloaded: <code>.</code>, <code>.*</code>, <code>::</code>, <code>?:</code>, <code>sizeof</code>.</li>
-        <li>Template with mixed types may need multiple template parameters: <code>template&lt;class T1, class T2&gt;</code>.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Topic 3: Inheritance, Virtual Functions, Friend Functions</h3>
-    <h4>Explain Like I’m 5</h4>
-    <p>Inheritance means a child class gets things from a parent class. A <code>Car</code> is a kind of <code>Vehicle</code>.</p>
-    <p>Virtual functions are like saying: “Use the real object’s version, not just the pointer type’s version.”</p>
-    <p>A friend function/class is someone you trust with your private secrets.</p>
-    <div class="ar">
-      <b>بالعربي ببساطة:</b> الوراثة تعني أن صنفاً ابناً يأخذ خصائص ودوال من صنف أب.
-      مثال: <code>Car</code> يرث من <code>Vehicle</code>.
-      الدالة الافتراضية <code>virtual</code> تجعل البرنامج يختار دالة الكائن الحقيقي وقت التشغيل، وليس فقط حسب نوع المؤشر.
-      أما <code>friend</code> فهي دالة أو صنف نعطيه إذناً خاصاً للوصول إلى بيانات private/protected.
-    </div>
-
-    <h4>Simple Code Example: Inheritance</h4>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
-
-class Vehicle {
-public:
-    Vehicle() {
-        cout &lt;&lt; "Base constructor\n";
-    }
-
-    void move() {
-        cout &lt;&lt; "Vehicle moves\n";
-    }
 };
 
-class Car : public Vehicle {
+int main() {
+    Counter c1, c2;
+    c2 = ++c1;
+    cout &lt;&lt; c2.getCount();
+}</code></pre>
+
+<div class="simple">
+If <code>operator++</code> returns <code>void</code>, you can write <code>++c1;</code> but not <code>c2 = ++c1;</code>.
+</div>
+<div class="ar">إذا كانت دالة <code>operator++</code> ترجع <code>void</code> فلا يمكن استخدامها في assignment مثل <code>c2 = ++c1;</code>.</div>
+
+<h3>Binary Operator: +</h3>
+<pre><code>class Items {
+private:
+    int item_count;
+
 public:
-    Car() {
-        cout &lt;&lt; "Derived constructor\n";
+    Items() {
+        item_count = 0;
     }
 
-    void drive() {
-        cout &lt;&lt; "Car drives\n";
+    Items(int c) {
+        item_count = c;
+    }
+
+    Items operator+(Items other) {
+        int total = item_count + other.item_count;
+        return Items(total);
+    }
+
+    int getItem() {
+        return item_count;
     }
 };
 
 int main() {
-    Car c;
-    c.move();   // inherited
-    c.drive();  // own function
+    Items panadol(5), aspirin(6), result;
+    result = panadol + aspirin;
+    cout &lt;&lt; result.getItem();   // 11
 }</code></pre>
 
-    <h4>Simple Code Example: Runtime Polymorphism</h4>
+<div class="must">
+<b>Binary operator rule:</b> In <code>panadol + aspirin</code>, <code>panadol</code> is the calling object, and <code>aspirin</code> is the parameter.
+</div>
+<div class="ar">في <code>panadol + aspirin</code> الكائن الموجود على اليسار هو الذي يستدعي الدالة، والكائن على اليمين يرسل كمعامل.</div>
+
+<h3>Operators You Cannot Overload</h3>
+<pre><code>.      member access
+.*     pointer-to-member
+::     scope resolution
+?:     ternary conditional
+sizeof size operator</code></pre>
+</div>
+</section>
+
+<section id="inheritance">
+<h2>7. Inheritance</h2>
+<div class="card">
+<p><b>English:</b> Inheritance means using an existing class as a base to create a new class.</p>
+<div class="ar"><b>بالعربي:</b> الوراثة تعني استخدام صنف موجود كأساس لإنشاء صنف جديد.</div>
+
+<h3>General Syntax</h3>
+<pre><code>class Base {
+    // base features
+};
+
+class Derived : public Base {
+    // new features
+};</code></pre>
+
+<h3>Simple Example</h3>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Person {
+private:
+    int age;
+
+public:
+    void setAge(int a) {
+        age = a;
+    }
+
+    void printAge() {
+        cout &lt;&lt; age &lt;&lt; endl;
+    }
+};
+
+class Student : public Person {
+private:
+    int level;
+
+public:
+    void setLevel(int l) {
+        level = l;
+    }
+
+    void printLevel() {
+        cout &lt;&lt; level &lt;&lt; endl;
+    }
+};
+
+int main() {
+    Student st;
+    st.setAge(20);      // inherited public function
+    st.setLevel(2);     // own function
+    st.printAge();
+    st.printLevel();
+}</code></pre>
+
+<h3>Types of Inheritance</h3>
+<table>
+<tr><th>Type</th><th>Shape</th><th>Example</th><th>Arabic</th></tr>
+<tr><td>Single</td><td>A → B</td><td>Car inherits Vehicle</td><td>وراثة من أب واحد</td></tr>
+<tr><td>Multilevel</td><td>A → B → C</td><td>Animal → Mammal → Dog</td><td>وراثة على عدة مستويات</td></tr>
+<tr><td>Hierarchical</td><td>A → B, C, D</td><td>Vehicle → Car, Bus</td><td>أب واحد له أكثر من ابن</td></tr>
+<tr><td>Multiple</td><td>A + B → C</td><td>Bat inherits Mammal and WingedAnimal</td><td>الابن يرث من أكثر من أب</td></tr>
+<tr><td>Hybrid</td><td>Combination</td><td>Mix of types</td><td>مزيج من أكثر من نوع</td></tr>
+</table>
+
+<h3>Access Mode Table</h3>
+<table>
+<tr><th>Base member</th><th>Public inheritance</th><th>Protected inheritance</th><th>Private inheritance</th></tr>
+<tr><td>public</td><td>public</td><td>protected</td><td>private</td></tr>
+<tr><td>protected</td><td>protected</td><td>protected</td><td>private</td></tr>
+<tr><td>private</td><td>not directly accessible</td><td>not directly accessible</td><td>not directly accessible</td></tr>
+</table>
+
+<div class="trap">
+<b>Exam trap:</b> Private members are inherited but cannot be directly accessed in the derived class. Use public/protected functions.
+</div>
+<div class="ar">خطأ امتحاني: أعضاء private في الأب لا يمكن الوصول لها مباشرة من الابن. نستخدم دوال public أو protected.</div>
+</div>
+</section>
+
+<section id="polymorphism">
+<h2>8. Polymorphism and Virtual Functions</h2>
+<div class="card">
+<p><b>English:</b> Polymorphism means many forms. In C++, it appears mainly as overloading and virtual functions.</p>
+<div class="ar"><b>بالعربي:</b> تعدد الأشكال يعني أن نفس الواجهة تظهر بأشكال متعددة. في C++ يظهر في Overloading و Virtual Functions.</div>
+
+<h3>Without virtual</h3>
 <pre><code>class Base {
 public:
-    virtual void print() {
-        cout &lt;&lt; "Base\n";
+    void print() {
+        cout &lt;&lt; "Base";
     }
 };
 
 class Derived : public Base {
 public:
     void print() {
-        cout &lt;&lt; "Derived\n";
+        cout &lt;&lt; "Derived";
     }
 };
 
 int main() {
     Derived d;
     Base* p = &d;
-    p-&gt;print();   // Derived, because print is virtual
+    p-&gt;print();   // Base
 }</code></pre>
 
-    <h4>Simple Code Example: Friend Function</h4>
+<h3>With virtual</h3>
+<pre><code>class Base {
+public:
+    virtual void print() {
+        cout &lt;&lt; "Base";
+    }
+};
+
+class Derived : public Base {
+public:
+    void print() {
+        cout &lt;&lt; "Derived";
+    }
+};
+
+int main() {
+    Derived d;
+    Base* p = &d;
+    p-&gt;print();   // Derived
+}</code></pre>
+
+<div class="simple">
+<b>Simple idea:</b> Without <code>virtual</code>, pointer type controls the function. With <code>virtual</code>, real object type controls the function.
+</div>
+<div class="ar">
+<b>ببساطة:</b> بدون <code>virtual</code> نوع المؤشر يحدد الدالة. مع <code>virtual</code> نوع الكائن الحقيقي يحدد الدالة.
+</div>
+
+<h3>Pure Virtual Function and Abstract Class</h3>
+<pre><code>class Shape {
+public:
+    virtual void draw() = 0;   // pure virtual
+};
+
+class Circle : public Shape {
+public:
+    void draw() {
+        cout &lt;&lt; "Circle";
+    }
+};</code></pre>
+<div class="must">
+A class with at least one pure virtual function is abstract. You cannot create an object directly from it.
+</div>
+<div class="ar">الصنف الذي يحتوي دالة pure virtual واحدة على الأقل يسمى abstract class ولا يمكن إنشاء كائن منه مباشرة.</div>
+
+<h3>Virtual Base Class</h3>
+<p>Used to solve ambiguity in multiple inheritance when the same base class appears twice.</p>
+<div class="ar">تستخدم لحل الغموض عندما يرث صنف من طريقين يؤديان إلى نفس الصنف الأب.</div>
+<pre><code>class Parent {
+public:
+    int data;
+};
+
+class Child1 : virtual public Parent { };
+class Child2 : virtual public Parent { };
+
+class GrandChild : public Child1, public Child2 {
+public:
+    void setData() {
+        data = 10;   // OK: only one Parent copy
+    }
+};</code></pre>
+</div>
+</section>
+
+<section id="friends">
+<h2>9. Friend Functions and Friend Classes</h2>
+<div class="card">
+<p><b>English:</b> A friend function is not a member of the class, but it can access private/protected data.</p>
+<div class="ar"><b>بالعربي:</b> دالة friend ليست عضواً في الصنف، لكنها تستطيع الوصول إلى بيانات private/protected.</div>
+
+<h3>Friend Function Example</h3>
 <pre><code>class Point {
 private:
     int x, y;
@@ -468,314 +631,285 @@ public:
 };
 
 int sum(Point p) {
-    return p.x + p.y;   // allowed because sum is friend
+    return p.x + p.y;
 }</code></pre>
 
-    <div class="trap">
-      <b>Exam traps:</b>
-      <div class="ar"><b>أخطاء امتحانية:</b> Overloading يعني نفس الاسم بمعاملات مختلفة. Overriding يعني صنف ابن يعيد تعريف نفس الدالة الموجودة في الأب بنفس التوقيع. في C++ لا توجد كلمة <code>interface</code> مثل Java؛ نستخدم abstract class بدالة pure virtual.</div>
-      <ul>
-        <li><b>Overloading vs overriding:</b> overloading = same name, different parameters. Overriding = derived class redefines same prototype from base class.</li>
-        <li><b>C++ has no Java-style <code>super</code> or <code>this</code> for base calls.</b> Use <code>Base::function()</code>. C++ does have <code>this</code> pointer to the current object.</li>
-        <li><b>Abstract class vs interface:</b> C++ has abstract classes using pure virtual functions: <code>virtual void draw() = 0;</code>. There is no <code>interface</code> keyword in standard C++.</li>
-        <li>Private members of the base class are inherited but not directly accessible by derived class.</li>
-        <li>For runtime polymorphism, use base class pointer/reference and declare the function <code>virtual</code> in the base class.</li>
-        <li>Friend is not mutual and not inherited. If A declares B as friend, B can access A, but A does not automatically access B.</li>
-      </ul>
-    </div>
-  </div>
+<h3>Friend Between Two Classes</h3>
+<pre><code>class B;   // forward declaration
 
-  <div class="card">
-    <h3>Phase 2 Exam Questions</h3>
-    <h4>5 Multiple-Choice Questions</h4>
-    <div class="ar">أسئلة اختيار من متعدد للتدريب السريع. أجب أولاً قبل النظر إلى الإجابة في القسم التفاعلي.</div>
-    <ol>
-      <li>Which class member access level is default in C++? A) public B) private C) protected D) static</li>
-      <li>What makes overloaded functions different? A) return type only B) comments C) parameter type/number/order D) variable names</li>
-      <li>What is the correct syntax for public inheritance? A) <code>class B public A</code> B) <code>class B : public A</code> C) <code>class B extends A</code> D) <code>class B inherits A</code></li>
-      <li>What keyword enables runtime polymorphism in the base class? A) static B) friend C) virtual D) template</li>
-      <li>Which operator cannot be overloaded? A) + B) ++ C) :: D) ==</li>
-    </ol>
-
-    <h4>2 Short Coding Problems</h4>
-    <ol>
-      <li>Create a class <code>BankAccount</code> with private <code>balance</code>, constructor, setter, getter/display function.</li>
-      <li>Create base class <code>Shape</code> with virtual <code>draw()</code>, derived class <code>Circle</code> overriding <code>draw()</code>, then call through <code>Shape*</code>.</li>
-    </ol>
-  </div>
-</section>
-
-<section id="phase3">
-  <h2>Phase 3 — Next 60 Minutes: Active Recall & Fixing</h2>
-  <p class="print-note"><b>Browser mode:</b> Use the buttons below. Answer one by one. Do not reveal until you answer. Be honest.</p>
-  <div class="card question-card">
-    <h3 id="qTitle">Question 1</h3>
-    <p id="qText"></p>
-    <div id="options"></div>
-    <textarea id="codeAnswer" rows="8" style="display:none" placeholder="Type your code answer here..."></textarea>
-    <input type="text" id="shortAnswer" placeholder="Type A, B, C, D or your short answer..." />
-    <br />
-    <button onclick="checkAnswer()">Check Answer</button>
-    <button class="secondary" onclick="nextQuestion()">Next Question</button>
-    <div id="feedback" class="answer-box"></div>
-  </div>
-</section>
-
-<section id="phase4">
-  <h2>Phase 4 — Last 30 Minutes: Emergency Cram Mode</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Extreme Summary Page 1: Definitions + Rules</h3>
-      <ul>
-        <li><b>Class:</b> blueprint containing data + functions.</li>
-        <li><b>Object:</b> instance of class.</li>
-        <li><b>Encapsulation:</b> data + functions packed together.</li>
-        <li><b>Data hiding:</b> private/protected restrict access.</li>
-        <li><b>Abstraction:</b> show necessary behavior, hide internal details.</li>
-        <li><b>Inheritance:</b> derived class gets base class members.</li>
-        <li><b>Polymorphism:</b> one interface, many forms.</li>
-        <li><b>Constructor:</b> initializes object, same name as class, no return type.</li>
-        <li><b>Destructor:</b> cleanup function, <code>~ClassName()</code>, no return type.</li>
-        <li><b>Static data:</b> one shared copy for all objects.</li>
-        <li><b>Friend function:</b> non-member function allowed to access private/protected members.</li>
-        <li><b>Friend class:</b> all member functions of friend class can access private/protected members.</li>
-        <li><b>Function overloading:</b> same function name, different parameter list.</li>
-        <li><b>Operator overloading:</b> define operator behavior for class objects.</li>
-        <li><b>Template:</b> generic code independent of data type.</li>
-      </ul>
-      <div class="ar">
-        <b>بالعربي للحفظ:</b> الصنف قالب، الكائن نسخة، التغليف جمع البيانات والدوال، إخفاء البيانات يمنع الوصول المباشر، الوراثة إعادة استخدام من الأب، تعدد الأشكال نفس الواجهة بأشكال مختلفة، والقالب Template كود عام لأكثر من نوع.
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Extreme Summary Page 2: Signatures + Rules</h3>
-<pre><code>class ClassName {
+class A {
 private:
     int x;
 public:
-    ClassName();
-    ~ClassName();
+    A() { x = 10; }
+    friend int add(A a, B b);
 };
 
-ClassName::ClassName() { }
-ClassName::~ClassName() { }
+class B {
+private:
+    int y;
+public:
+    B() { y = 20; }
+    friend int add(A a, B b);
+};
 
-class Derived : public Base { };
+int add(A a, B b) {
+    return a.x + b.y;
+}</code></pre>
 
-class C : public A, public B { };
+<h3>Friend Class</h3>
+<pre><code>class Rectangle {
+private:
+    int width, length;
 
-virtual void f();
+public:
+    Rectangle() {
+        width = 3;
+        length = 5;
+    }
 
-virtual void draw() = 0;   // pure virtual
+    friend class Square;
+};
 
-friend int sum(Point p);
+class Square {
+public:
+    int area(Rectangle r) {
+        return r.length * r.length;
+    }
+};</code></pre>
 
-template &lt;class T&gt;
-T maxValue(T a, T b);
-
-template &lt;class T&gt;
-class Box { T value; };</code></pre>
-
-      <div class="must">
-        <b>Do not forget:</b>
-        <div class="ar"><b>لا تنسَ:</b> استخدم النقطة <code>.</code> مع الكائن، والسهم <code>-&gt;</code> مع المؤشر. ضع <code>virtual</code> في الصنف الأب. واكتب فاصلة منقوطة بعد نهاية تعريف الصنف.</div>
-        <ul>
-          <li><code>private</code> cannot be accessed outside the class.</li>
-          <li>Derived class cannot directly access private base data.</li>
-          <li>Base constructor runs before derived constructor.</li>
-          <li>Destructor runs reverse order: derived then base.</li>
-          <li>Virtual function prototype must match in base and derived.</li>
-          <li>Use <code>-&gt;</code> with pointers: <code>ptr-&gt;func()</code>.</li>
-          <li>Use <code>.</code> with objects: <code>obj.func()</code>.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>10 One-Line Code Snippets You Must Memorize</h3>
-    <ol class="memorize">
-      <li><code>class Student { private: int id; public: void set(int x){ id=x; } };</code></li>
-      <li><code>Student s1;</code></li>
-      <li><code>Student* p = &s1; p-&gt;set(5);</code></li>
-      <li><code>class Car : public Vehicle { };</code></li>
-      <li><code>class Bat : public Mammal, public WingedAnimal { };</code></li>
-      <li><code>virtual void draw() { cout &lt;&lt; "shape"; }</code></li>
-      <li><code>virtual void draw() = 0;</code></li>
-      <li><code>Counter operator++() { ++count; return Counter(count); }</code></li>
-      <li><code>template &lt;class T&gt; T sum(T a, T b) { return a+b; }</code></li>
-      <li><code>friend int add(A a, B b);</code></li>
-    </ol>
-  </div>
+<div class="trap">
+<b>Friend traps:</b>
+<ul>
+<li>Friend function is called like normal function: <code>sum(p)</code>, not <code>p.sum()</code>.</li>
+<li><code>friend</code> keyword appears in declaration inside class, not in function definition.</li>
+<li>Friendship is not mutual: if B is friend of A, A is not automatically friend of B.</li>
+<li>Friendship is not inherited.</li>
+</ul>
+</div>
+<div class="ar">
+<b>أخطاء friend:</b> دالة friend تستدعى مثل دالة عادية وليس باستخدام النقطة. العلاقة ليست متبادلة وليست موروثة.
+</div>
+</div>
 </section>
 
-<section>
-  <h2>Final 3-Hour Study Command</h2>
-  <div class="card">
-    <ol>
-      <li><b>0:00-0:30:</b> Read Phase 1 twice. Copy the 3 topic list by hand.</li>
-      <li><b>0:30-2:00:</b> Read Phase 2. Type each code example once. Do not decorate it.</li>
-      <li><b>2:00-3:00:</b> Use Phase 3. One question at a time. No peeking.</li>
-      <li><b>3:00-3:30:</b> Memorize Phase 4 snippets. Say them aloud.</li>
-      <li><b>Last 30 minutes if available:</b> Re-do only wrong questions.</li>
-    </ol>
-    <div class="bad"><b>Stop wasting time:</b> Do not read long stories, images, or paragraphs now. Syntax wins marks tomorrow.</div>
-  </div>
+<section id="templates">
+<h2>10. Templates</h2>
+<div class="card">
+<p><b>English:</b> Templates let you write one function/class for many data types.</p>
+<div class="ar"><b>بالعربي:</b> القوالب Templates تسمح بكتابة دالة أو صنف واحد يعمل مع أنواع بيانات مختلفة.</div>
+
+<h3>Function Template</h3>
+<pre><code>template &lt;class T&gt;
+T sum(T a, T b) {
+    return a + b;
+}
+
+int main() {
+    cout &lt;&lt; sum(2, 3);
+    cout &lt;&lt; sum(2.5, 3.5);
+}</code></pre>
+
+<h3>Two Type Parameters</h3>
+<pre><code>template &lt;class T1, class T2&gt;
+T2 sum(T1 a, T2 b) {
+    return a + b;
+}</code></pre>
+
+<div class="trap">
+If parameters have different types, one <code>T</code> may not be enough. Use <code>T1</code> and <code>T2</code>.
+</div>
+<div class="ar">إذا كانت المعاملات من أنواع مختلفة، قد لا يكفي <code>T</code> واحد. استخدم <code>T1</code> و <code>T2</code>.</div>
+
+<h3>Swap Template</h3>
+<pre><code>template &lt;typename T&gt;
+void func_swap(T &a, T &b) {
+    T temp = a;
+    a = b;
+    b = temp;
+}</code></pre>
+
+<h3>Class Template</h3>
+<pre><code>template &lt;class T&gt;
+class MyClass {
+private:
+    T a, b;
+
+public:
+    MyClass(T x, T y) {
+        a = x;
+        b = y;
+    }
+
+    T getMax() {
+        return (a &gt; b ? a : b);
+    }
+};
+
+int main() {
+    MyClass&lt;int&gt; obj1(100, 75);
+    MyClass&lt;double&gt; obj2(1.5, 1.3);
+}</code></pre>
+
+<div class="must">
+<code>class</code> and <code>typename</code> are usually interchangeable in template headers.
+</div>
+<div class="ar">في تعريف القوالب غالباً يمكن استخدام <code>class</code> أو <code>typename</code> بنفس المعنى.</div>
+</div>
+</section>
+
+<section id="practice">
+<h2>11. More Practice Questions</h2>
+
+<div class="card">
+<h3>Quick MCQs</h3>
+<ol>
+<li>Default access in class is: A public B private C protected D friend</li>
+<li>Constructor has: A return int B return void C no return type D return class</li>
+<li>Correct inheritance syntax: A <code>class B : public A</code> B <code>class B extends A</code> C <code>B inherits A</code> D <code>class B(A)</code></li>
+<li>Runtime polymorphism needs: A static B virtual C friend D private</li>
+<li>Function overloading depends on: A return type only B parameter list C comments D variable names</li>
+<li>Friend function is: A always member B not member but can access private C constructor D destructor</li>
+<li>Pure virtual syntax is: A <code>virtual void f();</code> B <code>void f() = virtual;</code> C <code>virtual void f() = 0;</code> D <code>pure void f();</code></li>
+<li>Use arrow with: A object B pointer C class name D namespace</li>
+<li>Static data is shared by: A one object B all objects C no objects D only derived objects</li>
+<li>Cannot overload: A + B ++ C :: D ==</li>
+</ol>
+<div class="ar">حاول حل هذه الأسئلة بسرعة. لا تأخذ أكثر من 10 دقائق.</div>
+</div>
+
+<div class="card question-card">
+<h3 id="qTitle">Interactive Question</h3>
+<p id="qText"></p>
+<div id="options"></div>
+<textarea id="codeAnswer" rows="8" style="display:none" placeholder="Type your code answer here..."></textarea>
+<input type="text" id="shortAnswer" placeholder="Type A, B, C, D, or your short answer..." />
+<br>
+<button onclick="checkAnswer()">Check Answer</button>
+<button class="secondary" onclick="nextQuestion()">Next Question</button>
+<div id="feedback" class="answer-box"></div>
+</div>
+
+<div class="card">
+<h3>Short Coding Problems</h3>
+<ol>
+<li>Write class <code>BankAccount</code> with private balance and public deposit/display.</li>
+<li>Write class <code>Counter</code> with overloaded prefix <code>++</code>.</li>
+<li>Write base class <code>Vehicle</code> and derived class <code>Car</code>.</li>
+<li>Write abstract class <code>Shape</code> with pure virtual <code>draw()</code>.</li>
+<li>Write a template function <code>maxValue</code>.</li>
+</ol>
+</div>
+
+<div class="card">
+<h3>Must Memorize Snippets</h3>
+<pre><code>class Student { private: int id; public: void set(int x){ id=x; } };
+
+Student s1;
+
+Student* p = &s1;
+p-&gt;set(5);
+
+class Car : public Vehicle { };
+
+class Bat : public Mammal, public WingedAnimal { };
+
+virtual void draw();
+
+virtual void draw() = 0;
+
+Counter operator++() { ++count; return Counter(count); }
+
+Items operator+(Items other) { return Items(item_count + other.item_count); }
+
+template &lt;class T&gt;
+T sum(T a, T b) { return a+b; }
+
+friend int add(A a, B b);
+
+int ClassName::staticVar = 0;</code></pre>
+<div class="ar">هذه الصيغ مهمة جداً. احفظها كما هي تقريباً.</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Final Emergency Summary</h2>
+<table>
+<tr><th>Topic</th><th>One-line rule</th><th>Arabic</th></tr>
+<tr><td>Class</td><td>Blueprint for objects.</td><td>قالب للكائنات.</td></tr>
+<tr><td>Object</td><td>Instance of class.</td><td>نسخة من الصنف.</td></tr>
+<tr><td>Private</td><td>Accessible only inside class.</td><td>يستخدم داخل الصنف فقط.</td></tr>
+<tr><td>Public</td><td>Accessible from outside.</td><td>يمكن الوصول له من الخارج.</td></tr>
+<tr><td>Constructor</td><td>Runs when object is created.</td><td>يعمل عند إنشاء الكائن.</td></tr>
+<tr><td>Destructor</td><td>Runs when object is destroyed.</td><td>يعمل عند انتهاء الكائن.</td></tr>
+<tr><td>Overloading</td><td>Same name, different parameters.</td><td>نفس الاسم ومعاملات مختلفة.</td></tr>
+<tr><td>Overriding</td><td>Derived redefines base function.</td><td>الابن يعيد تعريف دالة الأب.</td></tr>
+<tr><td>Virtual</td><td>Chooses function at runtime.</td><td>اختيار الدالة وقت التشغيل.</td></tr>
+<tr><td>Template</td><td>Generic code for many types.</td><td>كود عام لأنواع متعددة.</td></tr>
+</table>
+<div class="bad">Stop here before exam: memorize syntax, then sleep. Do not start new topics at the last minute.</div>
+<div class="ar">توقف هنا قبل الامتحان: احفظ الصيغ ثم نم. لا تبدأ مواضيع جديدة في آخر لحظة.</div>
 </section>
 
 <footer class="small">
-  <p>Built from the uploaded lectures: review/pointers/functions, paradigms/OOP, classes/constructors, overloading, operator overloading, binary overloading, inheritance, polymorphism, friend functions/classes, and templates.</p>
+<p>Detailed simple bilingual cram file generated for your uploaded 11 C++ OOP lectures.</p>
 </footer>
 </main>
 
 <script>
 const questions = [
-  {
-    type: "mcq",
-    title: "Question 1",
-    text: "In C++, what is the default access level for members of a class?",
-    options: ["A) public", "B) private", "C) protected", "D) static"],
-    answer: "B",
-    explain: "Correct: B) private. In a class, members are private by default. بالعربي: أعضاء class تكون private افتراضياً، بينما struct تكون public."
-  },
-  {
-    type: "mcq",
-    title: "Question 2",
-    text: "Which difference can overload two functions with the same name?",
-    options: ["A) Return type only", "B) Parameter type/number/order", "C) Function body only", "D) Variable names only"],
-    answer: "B",
-    explain: "Correct: B. Overloading depends on parameter type, number, or order. بالعربي: الاختلاف يكون في نوع/عدد/ترتيب المعاملات، وليس نوع الإرجاع فقط."
-  },
-  {
-    type: "mcq",
-    title: "Question 3",
-    text: "Choose correct public inheritance syntax.",
-    options: ["A) class Car public Vehicle { };", "B) class Car : public Vehicle { };", "C) class Car extends Vehicle { };", "D) class Car inherits Vehicle { };"],
-    answer: "B",
-    explain: "Correct: B. C++ uses colon plus access mode: class Derived : public Base { }; بالعربي: نكتب نقطتين ثم نوع الوراثة ثم اسم الصنف الأب."
-  },
-  {
-    type: "mcq",
-    title: "Question 4",
-    text: "Which keyword allows runtime polymorphism when using a base class pointer?",
-    options: ["A) static", "B) friend", "C) virtual", "D) template"],
-    answer: "C",
-    explain: "Correct: C. Declare the base function virtual, then derived overrides it. بالعربي: ضع virtual في دالة الصنف الأب ليتم اختيار دالة الابن وقت التشغيل."
-  },
-  {
-    type: "mcq",
-    title: "Question 5",
-    text: "Which operator cannot be overloaded in C++?",
-    options: ["A) +", "B) ++", "C) ::", "D) =="],
-    answer: "C",
-    explain: "Correct: C. Operators that cannot be overloaded include ., .*, ::, ?:, sizeof. بالعربي: هذه المؤثرات لا يمكن إعادة تعريفها."
-  },
-  {
-    type: "code",
-    title: "Coding Problem 1",
-    text: "Write a small class BankAccount with private balance, constructor, setBalance, and display function.",
-    sample: `class BankAccount {
+{type:"mcq",title:"Question 1",text:"Default access level in a C++ class is:",options:["A) public","B) private","C) protected","D) friend"],answer:"B",explain:"B is correct. Class members are private by default. بالعربي: أعضاء class تكون private افتراضياً."},
+{type:"mcq",title:"Question 2",text:"Constructor must have:",options:["A) int return type","B) void return type","C) no return type","D) double return type"],answer:"C",explain:"C is correct. Constructor has no return type and has same name as class. بالعربي: الـ Constructor نفس اسم الصنف وبدون نوع إرجاع."},
+{type:"mcq",title:"Question 3",text:"Correct public inheritance syntax is:",options:["A) class B : public A { };","B) class B extends A { };","C) class B inherits A { };","D) class B public A { };"],answer:"A",explain:"A is correct. Syntax: class Derived : public Base { }; بالعربي: نستخدم نقطتين ثم public ثم اسم الأب."},
+{type:"mcq",title:"Question 4",text:"Runtime polymorphism mainly uses:",options:["A) static","B) virtual","C) typedef","D) sizeof"],answer:"B",explain:"B is correct. Use virtual in base class. بالعربي: نضع virtual في دالة الصنف الأب."},
+{type:"mcq",title:"Question 5",text:"Which operator cannot be overloaded?",options:["A) +","B) ++","C) ::","D) =="],answer:"C",explain:"C is correct. :: cannot be overloaded. بالعربي: لا يمكن إعادة تعريف مؤثر scope resolution."},
+{type:"code",title:"Coding Question 1",text:"Write a simple class Student with private id and public setId.",sample:`class Student {
 private:
-    double balance;
+    int id;
 public:
-    BankAccount() { balance = 0; }
-    BankAccount(double b) { balance = b; }
-    void setBalance(double b) { balance = b; }
-    void display() { cout << balance << endl; }
-};`,
-    explain: "Must include private data and public functions. Constructor has same name as class and no return type. بالعربي: لازم البيانات private والدوال public، والـ constructor نفس اسم الصنف وبدون نوع إرجاع."
-  },
-  {
-    type: "code",
-    title: "Coding Problem 2",
-    text: "Write Shape with virtual draw(), Circle overriding draw(), and call it through Shape*.",
-    sample: `class Shape {
+    void setId(int x) {
+        id = x;
+    }
+};`,explain:"Need private data, public function, and semicolon after class. بالعربي: لازم private و public وفاصلة منقوطة بعد الصنف."},
+{type:"code",title:"Coding Question 2",text:"Write a base class Shape with pure virtual draw().",sample:`class Shape {
 public:
-    virtual void draw() { cout << "Shape"; }
-};
-
-class Circle : public Shape {
-public:
-    void draw() { cout << "Circle"; }
-};
-
-int main() {
-    Circle c;
-    Shape* p = &c;
-    p->draw();
-}`,
-    explain: "Must use virtual in base and call through base pointer/reference for runtime polymorphism. بالعربي: لازم virtual في الأب واستدعاء عبر مؤشر/مرجع من نوع الأب."
-  }
+    virtual void draw() = 0;
+};`,explain:"Pure virtual function makes Shape abstract. بالعربي: هذه تجعل الصنف abstract."}
 ];
 
-let current = 0;
-
-function renderQuestion() {
-  const q = questions[current];
-  document.getElementById("qTitle").textContent = q.title;
-  document.getElementById("qText").textContent = q.text;
-  const optionsDiv = document.getElementById("options");
-  optionsDiv.innerHTML = "";
-  const short = document.getElementById("shortAnswer");
-  const code = document.getElementById("codeAnswer");
-  const feedback = document.getElementById("feedback");
-  feedback.style.display = "none";
-  feedback.innerHTML = "";
-  short.value = "";
-  code.value = "";
-
-  if (q.type === "mcq") {
-    q.options.forEach(opt => {
-      const p = document.createElement("p");
-      p.textContent = opt;
-      optionsDiv.appendChild(p);
-    });
-    short.style.display = "block";
-    code.style.display = "none";
-  } else {
-    short.style.display = "none";
-    code.style.display = "block";
-  }
+let current=0;
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function renderQuestion(){
+ const q=questions[current];
+ document.getElementById("qTitle").textContent=q.title;
+ document.getElementById("qText").textContent=q.text;
+ const options=document.getElementById("options");
+ options.innerHTML="";
+ const short=document.getElementById("shortAnswer");
+ const code=document.getElementById("codeAnswer");
+ const feedback=document.getElementById("feedback");
+ feedback.style.display="none"; feedback.innerHTML="";
+ short.value=""; code.value="";
+ if(q.type==="mcq"){
+   q.options.forEach(o=>{const p=document.createElement("p");p.textContent=o;options.appendChild(p)});
+   short.style.display="block"; code.style.display="none";
+ }else{
+   short.style.display="none"; code.style.display="block";
+ }
 }
-
-function checkAnswer() {
-  const q = questions[current];
-  const feedback = document.getElementById("feedback");
-  feedback.style.display = "block";
-
-  if (q.type === "mcq") {
-    const ans = document.getElementById("shortAnswer").value.trim().toUpperCase();
-    if (ans === q.answer) {
-      feedback.innerHTML = "<b style='color:#34d399'>Correct.</b><br>" + q.explain;
-    } else {
-      feedback.innerHTML =
-        "<b style='color:#fb7185'>Wrong or blank.</b><br>" +
-        "Correct answer: <b>" + q.answer + "</b><br>" +
-        q.explain +
-        "<br><br><b>Correct syntax/rule again:</b> " +
-        (q.answer === "B" && current === 0 ? "<code>class Student { private: int id; public: void set(); };</code>" :
-         q.answer === "B" && current === 1 ? "<code>int sum(int,int); double sum(double,double);</code>" :
-         q.answer === "B" && current === 2 ? "<code>class Derived : public Base { };</code>" :
-         q.answer === "C" && current === 3 ? "<code>virtual void print();</code>" :
-         "<code>:: cannot be overloaded.</code>");
-    }
-  } else {
-    const typed = document.getElementById("codeAnswer").value.trim();
-    feedback.innerHTML =
-      "<b>Compare your answer strictly:</b><br>" +
-      "<pre><code>" + q.sample.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</code></pre>" +
-      "<p>" + q.explain + "</p>" +
-      "<p><b>If yours missed private/public, constructor syntax, virtual, pointer arrow, or semicolons after class braces, mark it wrong.</b></p>";
-  }
+function checkAnswer(){
+ const q=questions[current];
+ const feedback=document.getElementById("feedback");
+ feedback.style.display="block";
+ if(q.type==="mcq"){
+   const ans=document.getElementById("shortAnswer").value.trim().toUpperCase();
+   if(ans===q.answer){feedback.innerHTML="<b style='color:#34d399'>Correct.</b><br>"+q.explain;}
+   else{feedback.innerHTML="<b style='color:#fb7185'>Wrong or blank.</b><br>Correct answer: <b>"+q.answer+"</b><br>"+q.explain;}
+ }else{
+   feedback.innerHTML="<b>Compare with this answer:</b><pre><code>"+esc(q.sample)+"</code></pre><p>"+q.explain+"</p>";
+ }
 }
-
-function nextQuestion() {
-  current = (current + 1) % questions.length;
-  renderQuestion();
-}
-
+function nextQuestion(){current=(current+1)%questions.length;renderQuestion();}
 renderQuestion();
 </script>
 </body>
