@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Information Security - Midterm Exam Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0b1f3a; --blue:#123a63; --accent:#1f77b4; --gold:#d8a63f;
+      --bg:#f5f7fb; --card:#ffffff; --text:#1d2733; --muted:#657589;
+      --border:#dce4ef; --success:#087443; --danger:#b3261e; --soft:#eef5ff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.65}
+    header{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:3.5rem 1.25rem;text-align:center;border-bottom:6px solid var(--gold)}
+    header h1{font-family:"Source Serif 4",serif;font-size:clamp(2rem,5vw,4rem);margin:0 0 .3rem}
+    header p{font-size:clamp(1rem,2.5vw,1.35rem);margin:.2rem 0 0;color:#dbeafe}
+    main{max-width:1180px;margin:0 auto;padding:1.25rem}
+    .toc,.section{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:0 8px 24px rgba(8,31,58,.08);margin:1.2rem 0;padding:1.35rem}
+    .toc h2,.section h2{color:var(--navy);margin-top:0;font-size:1.7rem}
+    .toc nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.75rem}
+    .toc a{display:block;text-decoration:none;color:var(--blue);font-weight:700;background:var(--soft);padding:.8rem 1rem;border-radius:12px;border:1px solid #d7e8ff}
+    h3{color:var(--blue);border-left:5px solid var(--gold);padding-left:.75rem;margin-top:1.4rem}
+    h4{color:var(--navy);margin-bottom:.3rem}
+    .toolbar{display:flex;gap:.75rem;flex-wrap:wrap;margin:.8rem 0 1.1rem}
+    button{cursor:pointer;border:0;background:var(--blue);color:#fff;padding:.75rem 1rem;border-radius:999px;font-weight:800;box-shadow:0 4px 12px rgba(8,31,58,.18)}
+    button:hover{background:var(--navy)}
+    .question,.tf,.match-box,.summary-card,.flashcard{border:1px solid var(--border);background:#fff;border-radius:14px;margin:1rem 0;padding:1rem}
+    .question strong.qid,.tf strong{color:var(--blue)}
+    .options{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.5rem;margin:.8rem 0}
+    .option{padding:.6rem .75rem;background:#f8fafc;border:1px solid var(--border);border-radius:10px}
+    .answer{margin-top:.8rem;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;border-radius:10px;padding:.75rem}
+    .hidden-answers .answer{display:none}
+    .correct{font-weight:800;color:var(--success)}
+    .false{font-weight:800;color:var(--danger)}
+    .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+    table{width:100%;border-collapse:collapse;margin:.8rem 0;background:white}
+    th,td{border:1px solid var(--border);padding:.7rem;text-align:left;vertical-align:top}
+    th{background:var(--navy);color:white}
+    tr:nth-child(even) td{background:#f8fafc}
+    .summary-card ul{margin:.45rem 0 0;padding-left:1.25rem}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.9rem}
+    .flashcard{display:grid;grid-template-columns:120px 1fr;gap:.8rem;align-items:start}
+    .term{font-weight:800;color:var(--blue)}
+    .badge{display:inline-block;background:#e8f2ff;color:var(--blue);border:1px solid #cfe4ff;border-radius:999px;padding:.15rem .55rem;font-size:.82rem;font-weight:800}
+    footer{text-align:center;color:var(--muted);padding:2rem}
+    @media (max-width:640px){main{padding:.75rem}.section,.toc{padding:1rem}.flashcard{grid-template-columns:1fr}.options{grid-template-columns:1fr}header{padding:2.4rem .9rem}}
+    @media print{
+      body{background:white;color:black;font-size:11pt}
+      header{background:white!important;color:black;border-bottom:2px solid black;padding:1rem}
+      header p{color:black}
+      main{max-width:none;padding:0}
+      .toc,.section,.question,.tf,.match-box,.summary-card,.flashcard{box-shadow:none;border:1px solid #999;break-inside:avoid}
+      button,.toolbar{display:none!important}
+      .hidden-answers .answer{display:block!important}
+      a{color:black;text-decoration:none}
+      .answer{border:1px solid #999;background:white;color:black}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Information Security - Midterm Exam Review</h1>
+  <p>Comprehensive Study Guide</p>
+</header>
+<main>
+  <aside class="toc" aria-labelledby="toc-title">
+    <h2 id="toc-title">Table of Contents</h2>
+    <nav>
+      <a href="#mcq">1. Multiple Choice Questions</a>
+      <a href="#tf">2. True/False Questions</a>
+      <a href="#matching">3. Matching Lists</a>
+      <a href="#summary">4. Key Topics Summary</a>
+      <a href="#cards">5. Quick Revision Cards</a>
+    </nav>
+  </aside>
+
+  <section id="mcq" class="section hidden-answers">
+    <h2>Section 1: Multiple Choice Questions (MCQ)</h2>
+    <p><span class="badge">30 questions</span> Answers are hidden by default for active recall.</p>
+    <div class="toolbar"><button onclick="toggleAnswers('mcq')">Show/Hide Answers</button></div>
+
+    <article class="question"><strong class="qid">Q1.</strong> Which course aim best reflects an advanced threat-analysis focus?
+      <div class="options"><div class="option">A. Formatting secure documents</div><div class="option">B. Analysis of APTs and zero-day attacks</div><div class="option">C. Designing office layouts</div><div class="option">D. Optimizing database indexes only</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> Lecture 1 frames APTs and zero-day attacks as a central course aim.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q2.</strong> In the CNSS definition, information security primarily protects information and its critical elements, especially:
+      <div class="options"><div class="option">A. Speed, storage, and compression</div><div class="option">B. Confidentiality, integrity, and availability</div><div class="option">C. Marketing, finance, and operations</div><div class="option">D. Hardware, firmware, and cables only</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> The CIA triad is the core set of critical information characteristics.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q3.</strong> The McCumber Cube is another name for which model?
+      <div class="options"><div class="option">A. OWASP Top 10</div><div class="option">B. NSTISSC/CNSS Security Model</div><div class="option">C. SDLC Waterfall Model</div><div class="option">D. STRIDE threat model</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> Lecture 2 identifies the NSTISSC/CNSS Security Model as the McCumber Cube.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q4.</strong> Which statement best expresses the security-access trade-off?
+      <div class="options"><div class="option">A. Perfect security is always achievable with enough budget.</div><div class="option">B. Strong security should eliminate all user access.</div><div class="option">C. Security must balance protection with reasonable availability/access.</div><div class="option">D. Availability should always override protection.</div></div>
+      <div class="answer"><span class="correct">Correct answer: C.</span> Lecture 2 emphasizes that perfect security is impossible and security must balance protection and access.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q5.</strong> Which approach to security implementation is initiated by upper management?
+      <div class="options"><div class="option">A. Bottom-up approach</div><div class="option">B. Top-down approach</div><div class="option">C. Peer-to-peer approach</div><div class="option">D. Ad hoc approach</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> The top-down approach begins with senior management direction and support.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q6.</strong> Which of the following is NOT one of the four business functions of information security?
+      <div class="options"><div class="option">A. Protecting the organization's ability to function</div><div class="option">B. Protecting data collected and used</div><div class="option">C. Safeguarding technology assets</div><div class="option">D. Guaranteeing unlimited access for all users</div></div>
+      <div class="answer"><span class="correct">Correct answer: D.</span> Information security enables safe access, but not unlimited access.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q7.</strong> A threat is best defined as:
+      <div class="options"><div class="option">A. A weakness in a control</div><div class="option">B. An object, person, or entity that represents constant danger to an asset</div><div class="option">C. A successful exploit only</div><div class="option">D. A completed incident report</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> Lecture 3 defines threat as a constant danger to an asset.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q8.</strong> Which pair best distinguishes competitive intelligence from industrial espionage?
+      <div class="options"><div class="option">A. Legal vs. illegal collection</div><div class="option">B. Encrypted vs. unencrypted traffic</div><div class="option">C. Insider vs. outsider attack</div><div class="option">D. Physical vs. logical storage</div></div>
+      <div class="answer"><span class="correct">Correct answer: A.</span> Competitive intelligence is legal; industrial espionage is illegal access or collection.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q9.</strong> Shoulder surfing is primarily an example of:
+      <div class="options"><div class="option">A. Communications interception using packet capture</div><div class="option">B. Unauthorized observation of confidential information</div><div class="option">C. Energy anomaly</div><div class="option">D. Software obsolescence</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> It occurs when someone observes confidential information while a user accesses it.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q10.</strong> Which threat category includes fire, flood, earthquake, and lightning?
+      <div class="options"><div class="option">A. Information extortion</div><div class="option">B. Forces of nature</div><div class="option">C. Technical software failures</div><div class="option">D. Compromise to intellectual property</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> Natural events disrupt storage, transmission, and use of information.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q11.</strong> Hardware is the physical technology that:
+      <div class="options"><div class="option">A. Only authenticates users</div><div class="option">B. Houses/executes software, stores/transports data, and provides input/output interfaces</div><div class="option">C. Only controls passwords</div><div class="option">D. Replaces people and procedures</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> Lecture 4 defines hardware through these three roles.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q12.</strong> Which is NOT one of the seven major sources of physical loss listed in Lecture 4?
+      <div class="options"><div class="option">A. Liquids</div><div class="option">B. Living organisms</div><div class="option">C. Energy anomalies</div><div class="option">D. SQL injection</div></div>
+      <div class="answer"><span class="correct">Correct answer: D.</span> SQL injection is a software/web application risk, not a physical loss source.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q13.</strong> Tailgating occurs when:
+      <div class="options"><div class="option">A. A user changes passwords too often</div><div class="option">B. An unauthorized person follows an authorized person through a control point</div><div class="option">C. A firewall rejects legitimate packets</div><div class="option">D. A worm changes its file size</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> It is a physical access-control bypass.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q14.</strong> What is the key purpose of a mantrap?
+      <div class="options"><div class="option">A. Encrypt all web traffic</div><div class="option">B. Prevent or control entry by using a two-door verification enclosure</div><div class="option">C. Detect malware signatures</div><div class="option">D. Increase wireless bandwidth</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> A mantrap verifies an individual before allowing entry into the protected facility.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q15.</strong> Why is electronic monitoring considered incomplete as a standalone control?
+      <div class="options"><div class="option">A. It is always illegal.</div><div class="option">B. It is usually reactive and recordings may not be monitored in real time.</div><div class="option">C. It cannot record events.</div><div class="option">D. It only works with biometric locks.</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> Lecture 4 stresses that monitoring records events but often does not prevent them.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q16.</strong> Software is difficult to secure largely because:
+      <div class="options"><div class="option">A. It never changes after deployment.</div><div class="option">B. Programming errors account for many information attacks.</div><div class="option">C. It is not part of information systems.</div><div class="option">D. It cannot be attacked remotely.</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> Lecture 5 identifies programming errors as a substantial source of attacks.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q17.</strong> Trap doors in software are:
+      <div class="options"><div class="option">A. Purposeful shortcuts that can bypass security checks</div><div class="option">B. Physical emergency exits only</div><div class="option">C. Encrypted backup files</div><div class="option">D. Anti-theft alarms</div></div>
+      <div class="answer"><span class="correct">Correct answer: A.</span> Trap doors are hidden or intentional software shortcuts that may cause breaches.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q18.</strong> Which item belongs to the OWASP Top 10 list in Lecture 5?
+      <div class="options"><div class="option">A. Fire sprinklers</div><div class="option">B. Broken authentication</div><div class="option">C. Guards and dogs</div><div class="option">D. Extreme temperature</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> Broken authentication is a listed web application risk.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q19.</strong> Software Assurance (SA) means:
+      <div class="options"><div class="option">A. Adding security only after release</div><div class="option">B. Building security into the development lifecycle</div><div class="option">C. Removing testing from the SDLC</div><div class="option">D. Replacing access control with user training only</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> SA integrates security into development rather than treating it as an afterthought.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q20.</strong> Under the NIST approach, security must be considered during:
+      <div class="options"><div class="option">A. Disposal only</div><div class="option">B. Implementation only</div><div class="option">C. Initiation, development, implementation, operation, and disposal</div><div class="option">D. Marketing and sales only</div></div>
+      <div class="answer"><span class="correct">Correct answer: C.</span> Lecture 5 lists these SDLC phases explicitly.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q21.</strong> Which security design principle most directly expresses least privilege?
+      <div class="options"><div class="option">A. Programs/users utilize only necessary privileges.</div><div class="option">B. Every user shares the same access level.</div><div class="option">C. Protection mechanisms require no keys.</div><div class="option">D. Minimize logging.</div></div>
+      <div class="answer"><span class="correct">Correct answer: A.</span> Least privilege means users and programs receive only the privileges needed.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q22.</strong> For telework, which control is emphasized to secure data transmission?
+      <div class="options"><div class="option">A. VPN</div><div class="option">B. Tailgating</div><div class="option">C. Water detection</div><div class="option">D. Phreaking</div></div>
+      <div class="answer"><span class="correct">Correct answer: A.</span> Lecture 5 states VPNs are essential for secure remote transmission.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q23.</strong> Which sequence best distinguishes attack, vulnerability, and threat?
+      <div class="options"><div class="option">A. Potential danger; weakness; exploit action</div><div class="option">B. Exploit action; weakness; potential danger</div><div class="option">C. Weakness; potential danger; exploit action</div><div class="option">D. Asset; control; policy</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> Attack = action exploiting weakness; vulnerability = weakness; threat = potential danger.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q24.</strong> A virus differs from a worm because a virus:
+      <div class="options"><div class="option">A. Requires a host software environment to execute</div><div class="option">B. Never replicates</div><div class="option">C. Only attacks physical locks</div><div class="option">D. Cannot be transmitted by email</div></div>
+      <div class="answer"><span class="correct">Correct answer: A.</span> Viruses attach to host programs; worms self-replicate without another host program.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q25.</strong> Macro viruses activate when:
+      <div class="options"><div class="option">A. A user opens an infected document containing automatically executing macro code</div><div class="option">B. A server loses water pressure</div><div class="option">C. An ID badge is copied</div><div class="option">D. A telephone network is phreaked</div></div>
+      <div class="answer"><span class="correct">Correct answer: A.</span> They are embedded in macro code used by office/database applications.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q26.</strong> Which malware hides its true nature and releases a payload when activated?
+      <div class="options"><div class="option">A. Trojan horse</div><div class="option">B. UPS</div><div class="option">C. Badge</div><div class="option">D. Mantrap</div></div>
+      <div class="answer"><span class="correct">Correct answer: A.</span> Trojan horses are disguised as useful software and may install back doors.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q27.</strong> In DDoS attacks, compromised machines are commonly turned into:
+      <div class="options"><div class="option">A. Firewalls</div><div class="option">B. Bots or zombies</div><div class="option">C. Secure rooms</div><div class="option">D. Badges</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> DDoS attacks coordinate traffic from many compromised hosts.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q28.</strong> Pharming is best described as:
+      <div class="options"><div class="option">A. Sending bulk commercial email</div><div class="option">B. Redirecting legitimate web traffic to illegitimate sites, often via DNS manipulation</div><div class="option">C. Observing someone type a password</div><div class="option">D. Executing a macro virus</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> Pharming redirects users to fake sites to collect personal information.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q29.</strong> A sniffer is:
+      <div class="options"><div class="option">A. A program/device that monitors network data in transit</div><div class="option">B. A lock category</div><div class="option">C. A power supply device</div><div class="option">D. A secure SDLC phase</div></div>
+      <div class="answer"><span class="correct">Correct answer: A.</span> Sniffers can be used legitimately for administration or maliciously to steal data.</div>
+    </article>
+
+    <article class="question"><strong class="qid">Q30.</strong> TCP hijacking is a variant of:
+      <div class="options"><div class="option">A. Physical theft</div><div class="option">B. Man-in-the-middle attack</div><div class="option">C. Fire suppression</div><div class="option">D. Competitive intelligence</div></div>
+      <div class="answer"><span class="correct">Correct answer: B.</span> The attacker inserts themselves into TCP/IP-based communication.</div>
+    </article>
+  </section>
+
+  <section id="tf" class="section hidden-answers">
+    <h2>Section 2: True/False Questions</h2>
+    <p><span class="badge">24 statements</span> False statements include a correction.</p>
+    <div class="toolbar"><button onclick="toggleAnswers('tf')">Show/Hide Answers</button></div>
+
+    <article class="tf"><strong>T1.</strong> The course includes risk assessment, access control, IPS, and threat-landscape concepts. <div class="answer"><span class="correct">True.</span></div></article>
+    <article class="tf"><strong>T2.</strong> Information security protects only computers, not people, procedures, or data. <div class="answer"><span class="false">False.</span> It protects information and the systems, hardware, people, procedures, data, and networks that use it.</div></article>
+    <article class="tf"><strong>T3.</strong> The CIA triad consists of confidentiality, integrity, and availability. <div class="answer"><span class="correct">True.</span></div></article>
+    <article class="tf"><strong>T4.</strong> The McCumber Cube is useful only when viewed from a single perspective. <div class="answer"><span class="false">False.</span> A weakness emerges if it is viewed from only one perspective.</div></article>
+    <article class="tf"><strong>T5.</strong> Perfect security is impossible; the goal is a practical balance between protection and access. <div class="answer"><span class="correct">True.</span></div></article>
+    <article class="tf"><strong>T6.</strong> The bottom-up approach is initiated by upper management. <div class="answer"><span class="false">False.</span> Upper management initiates the top-down approach; bottom-up relies on individual administrators' technical expertise.</div></article>
+    <article class="tf"><strong>T7.</strong> Information security is both a management issue and a people issue. <div class="answer"><span class="correct">True.</span></div></article>
+    <article class="tf"><strong>T8.</strong> Data at rest is important, but data in motion is not part of information security. <div class="answer"><span class="false">False.</span> Protecting both data at rest and data in motion is critical.</div></article>
+    <article class="tf"><strong>T9.</strong> Employees can be among the greatest threats because mistakes can reveal, delete, modify, or improperly store data. <div class="answer"><span class="correct">True.</span></div></article>
+    <article class="tf"><strong>T10.</strong> Competitive intelligence and industrial espionage are both illegal. <div class="answer"><span class="false">False.</span> Competitive intelligence is legal; industrial espionage is illegal.</div></article>
+    <article class="tf"><strong>T11.</strong> Hardware security includes protecting the physical assets that house software, store data, and provide interfaces. <div class="answer"><span class="correct">True.</span></div></article>
+    <article class="tf"><strong>T12.</strong> Unrestricted physical access can undermine the guarantee of information security. <div class="answer"><span class="correct">True.</span></div></article>
+    <article class="tf"><strong>T13.</strong> ID cards and badges should be the only access control mechanism because they cannot be duplicated. <div class="answer"><span class="false">False.</span> Cards can be duplicated, stolen, or modified; they should not be the only control.</div></article>
+    <article class="tf"><strong>T14.</strong> Electronic monitoring is often reactive rather than preventive. <div class="answer"><span class="correct">True.</span></div></article>
+    <article class="tf"><strong>T15.</strong> UPS devices can keep systems online long enough for safe shutdown during power problems. <div class="answer"><span class="correct">True.</span></div></article>
+    <article class="tf"><strong>T16.</strong> Software attacks and technical software failures are the two main software threat categories. <div class="answer"><span class="correct">True.</span></div></article>
+    <article class="tf"><strong>T17.</strong> Bugs are code problems and unknown loopholes. <div class="answer"><span class="correct">True.</span></div></article>
+    <article class="tf"><strong>T18.</strong> Software Assurance means security is added only after deployment. <div class="answer"><span class="false">False.</span> SA builds security into the software development lifecycle.</div></article>
+    <article class="tf"><strong>T19.</strong> The NIST SDLC security approach considers security during operation and disposal as well as earlier phases. <div class="answer"><span class="correct">True.</span></div></article>
+    <article class="tf"><strong>T20.</strong> Telework lowers risk because home networks are always more secure than office systems. <div class="answer"><span class="false">False.</span> Telework increases risk; home devices and networks are often less secure, so VPNs and strong authentication are needed.</div></article>
+    <article class="tf"><strong>T21.</strong> A vulnerability is a weakness, while an attack is an action that exploits a weakness. <div class="answer"><span class="correct">True.</span></div></article>
+    <article class="tf"><strong>T22.</strong> Worms require a host program to replicate. <div class="answer"><span class="false">False.</span> Worms self-replicate without another host program; viruses require a host environment.</div></article>
+    <article class="tf"><strong>T23.</strong> Hoaxes can overload networks and waste users' time even if they are based on fake warnings. <div class="answer"><span class="correct">True.</span></div></article>
+    <article class="tf"><strong>T24.</strong> Phishing and pharming are identical; both rely only on DNS manipulation. <div class="answer"><span class="false">False.</span> Phishing deceives users by posing as a legitimate entity; pharming redirects legitimate traffic to illegitimate sites, often through DNS manipulation.</div></article>
+  </section>
+
+  <section id="matching" class="section">
+    <h2>Section 3: Matching Lists</h2>
+
+    <article class="match-box">
+      <h3>Matching Exercise 1: Security Terms to Definitions</h3>
+      <div class="grid-2">
+        <table><thead><tr><th>List A</th></tr></thead><tbody>
+          <tr><td>1. Confidentiality</td></tr><tr><td>2. Integrity</td></tr><tr><td>3. Availability</td></tr><tr><td>4. Authenticity</td></tr><tr><td>5. Possession</td></tr><tr><td>6. Utility</td></tr><tr><td>7. Vulnerability</td></tr><tr><td>8. Threat</td></tr>
+        </tbody></table>
+        <table><thead><tr><th>List B (Scrambled)</th></tr></thead><tbody>
+          <tr><td>A. The information has value for an intended purpose.</td></tr><tr><td>B. Weakness caused by missing or weak controls.</td></tr><tr><td>C. Information is accessible to authorized users when needed.</td></tr><tr><td>D. Information is genuine and from the claimed source.</td></tr><tr><td>E. A potential danger to an asset.</td></tr><tr><td>F. Information is protected from unauthorized disclosure.</td></tr><tr><td>G. Ownership or control of information is maintained.</td></tr><tr><td>H. Information remains whole, accurate, and uncorrupted.</td></tr>
+        </tbody></table>
+      </div>
+      <h4>Answer Key</h4><p>1-F, 2-H, 3-C, 4-D, 5-G, 6-A, 7-B, 8-E.</p>
+    </article>
+
+    <article class="match-box">
+      <h3>Matching Exercise 2: Attack Types to Descriptions</h3>
+      <div class="grid-2">
+        <table><thead><tr><th>List A</th></tr></thead><tbody>
+          <tr><td>1. Virus</td></tr><tr><td>2. Worm</td></tr><tr><td>3. Trojan horse</td></tr><tr><td>4. DoS</td></tr><tr><td>5. DDoS</td></tr><tr><td>6. Sniffer</td></tr><tr><td>7. Spoofing</td></tr><tr><td>8. Pharming</td></tr><tr><td>9. Man-in-the-middle</td></tr><tr><td>10. Hoax</td></tr>
+        </tbody></table>
+        <table><thead><tr><th>List B (Scrambled)</th></tr></thead><tbody>
+          <tr><td>A. Fake warning that tricks users into spreading disruption.</td></tr><tr><td>B. Monitors data traveling over a network.</td></tr><tr><td>C. Redirects legitimate web traffic to illegitimate sites.</td></tr><tr><td>D. Coordinates requests from many compromised locations.</td></tr><tr><td>E. Uses a false communication identifier such as an IP/email address.</td></tr><tr><td>F. Floods a target with connection or information requests.</td></tr><tr><td>G. Requires a host program and replicates as that host is shared.</td></tr><tr><td>H. Self-replicates without requiring another host program.</td></tr><tr><td>I. Disguises itself as helpful software and releases a payload.</td></tr><tr><td>J. Intercepts, reads, modifies, or redirects communication.</td></tr>
+        </tbody></table>
+      </div>
+      <h4>Answer Key</h4><p>1-G, 2-H, 3-I, 4-F, 5-D, 6-B, 7-E, 8-C, 9-J, 10-A.</p>
+    </article>
+
+    <article class="match-box">
+      <h3>Matching Exercise 3: Controls / Principles to Purposes</h3>
+      <div class="grid-2">
+        <table><thead><tr><th>List A</th></tr></thead><tbody>
+          <tr><td>1. Mantrap</td></tr><tr><td>2. UPS</td></tr><tr><td>3. VPN</td></tr><tr><td>4. Remote wipe</td></tr><tr><td>5. Least privilege</td></tr><tr><td>6. Complete mediation</td></tr><tr><td>7. Electronic monitoring</td></tr><tr><td>8. Software Assurance</td></tr>
+        </tbody></table>
+        <table><thead><tr><th>List B (Scrambled)</th></tr></thead><tbody>
+          <tr><td>A. Secure data transmission for remote computing.</td></tr><tr><td>B. Keep systems online long enough for safe shutdown.</td></tr><tr><td>C. Build security into the development lifecycle.</td></tr><tr><td>D. Verify access through a controlled two-door enclosure.</td></tr><tr><td>E. Delete data from a lost or stolen mobile device.</td></tr><tr><td>F. Give users/programs only the privileges necessary.</td></tr><tr><td>G. Check every access to every object for authority.</td></tr><tr><td>H. Record events where other physical controls are incomplete.</td></tr>
+        </tbody></table>
+      </div>
+      <h4>Answer Key</h4><p>1-D, 2-B, 3-A, 4-E, 5-F, 6-G, 7-H, 8-C.</p>
+    </article>
+  </section>
+
+  <section id="summary" class="section">
+    <h2>Section 4: Key Topics Summary</h2>
+
+    <article class="summary-card">
+      <h3>Lecture 1 - Introduction to Course</h3>
+      <ul>
+        <li>Course aims include <strong>APTs and zero-day attacks</strong>, <strong>risk assessment and mitigation</strong>, <strong>authentication, authorization, and accountability</strong>, and <strong>IPS implementation</strong>.</li>
+        <li>Expected outcomes: understand <strong>information security principles</strong>, assess risks, develop mitigation strategies, and implement cybersecurity protection techniques.</li>
+        <li>Course outline spans <strong>security fundamentals</strong>, <strong>security software</strong>, <strong>threats</strong>, <strong>protection techniques</strong>, <strong>risk management</strong>, <strong>firewalls</strong>, and current issues.</li>
+      </ul>
+    </article>
+
+    <article class="summary-card">
+      <h3>Lecture 2 - Fundamental Concepts of Information Security</h3>
+      <ul>
+        <li><strong>Information security</strong>: a well-informed assurance that information risks and controls are in balance.</li>
+        <li>History: mainframe-era physical controls, <strong>Enigma</strong>, ARPANET, R-609, Internet growth, and the modern interdependence of connected networks.</li>
+        <li><strong>CNSS definition</strong>: protection of information and critical elements including <strong>confidentiality, integrity, and availability</strong>, supported by policy, technology, training, and awareness.</li>
+        <li><strong>CIA triangle</strong>: confidentiality, integrity, availability; expanded with <strong>timing, accuracy, authenticity, utility, and possession</strong>.</li>
+        <li><strong>NSTISSC/CNSS Security Model (McCumber Cube)</strong>: considers security goals, information states (storage, processing, transmission), and safeguards (policy, education/training, technology).</li>
+        <li><strong>Information system components</strong>: software, hardware, data, people, procedures, and networks.</li>
+        <li><strong>Security vs. access</strong>: perfect security is impossible; usable protection must preserve reasonable availability.</li>
+        <li><strong>Top-down</strong> security is initiated by upper management; <strong>bottom-up</strong> relies on administrators' technical expertise.</li>
+        <li><strong>SDLC</strong> provides a rigorous methodology to avoid missing steps and create a comprehensive security posture.</li>
+      </ul>
+    </article>
+
+    <article class="summary-card">
+      <h3>Lecture 3 - Objectives of Information Security and Threats</h3>
+      <ul>
+        <li>Primary mission: ensure systems and contents remain trustworthy despite daily attacks.</li>
+        <li>Four business functions: <strong>protect functionality</strong>, <strong>enable safe application operation</strong>, <strong>protect collected/used data</strong>, and <strong>safeguard technology assets</strong>.</li>
+        <li><strong>Threat</strong>: an object, person, or entity representing constant danger to an asset.</li>
+        <li>Major threat categories include IP compromise, software attacks, quality-of-service deviations, espionage/trespass, forces of nature, human error, extortion, weak policy/planning/controls, sabotage/vandalism, theft, hardware/software failures, and technological obsolescence.</li>
+        <li><strong>Intellectual property</strong>: ownership of ideas and control over their tangible or virtual representation; software piracy is a common breach.</li>
+        <li><strong>Espionage/trespass</strong>: unauthorized access to protected information; distinguish <strong>legal competitive intelligence</strong> from <strong>illegal industrial espionage</strong>.</li>
+        <li><strong>Human error</strong> includes non-malicious mistakes such as disclosure, incorrect entry, deletion/modification, unsafe storage, and failure to protect information.</li>
+        <li><strong>Technological obsolescence</strong>: outdated infrastructure can produce unreliable or untrustworthy systems; managerial planning helps prevent it.</li>
+      </ul>
+    </article>
+
+    <article class="summary-card">
+      <h3>Lecture 4 - Hardware Security</h3>
+      <ul>
+        <li><strong>Hardware</strong> houses and executes software, stores/transports data, and provides interfaces for information input/output.</li>
+        <li>Physical security policies treat hardware as a <strong>physical asset</strong> and protect it from harm or theft.</li>
+        <li>Unrestricted physical access usually means information security cannot be guaranteed.</li>
+        <li>Information stored on portable hardware is often more valuable than the device itself.</li>
+        <li>Seven physical loss sources: <strong>extreme temperature, gases, liquids, living organisms, projectiles, movement, and energy anomalies</strong>.</li>
+        <li>Physical security controls include <strong>walls/fences/gates, guards/dogs, ID cards/badges, locks/keys, electronic monitoring, alarms, computer rooms/wiring closets, and interior walls/doors</strong>.</li>
+        <li><strong>Tailgating</strong>: an unauthorized person follows an authorized user through a control point.</li>
+        <li><strong>Mantrap</strong>: a controlled enclosure with entry and exit points that verifies access before facility entry.</li>
+        <li><strong>Electronic monitoring</strong> records events but is often reactive and not watched in real time.</li>
+        <li>Fire, water, supporting utilities, and facility system maintenance must be integrated into physical security and disaster recovery plans.</li>
+      </ul>
+    </article>
+
+    <article class="summary-card">
+      <h3>Lecture 5 - Software and Personal Computer Security</h3>
+      <ul>
+        <li><strong>Software</strong> includes applications, operating systems, and command utilities, and is one of the six IS components.</li>
+        <li>Software is difficult to secure because programming errors cause a substantial portion of attacks.</li>
+        <li>Software threats: <strong>software attacks</strong> and <strong>technical software failures</strong>.</li>
+        <li><strong>Malware</strong>: code designed to damage, destroy, or deny service; includes viruses, worms, and Trojan horses.</li>
+        <li><strong>Trap doors</strong> are purposeful shortcuts that bypass checks; <strong>bugs</strong> are code problems and unknown loopholes.</li>
+        <li><strong>OWASP Top 10</strong> risks include injection, broken authentication, sensitive data exposure, XXE, broken access control, security misconfiguration, XSS, insecure deserialization, insufficient logging/monitoring, and insecure direct object references.</li>
+        <li><strong>Software Assurance (SA)</strong>: build security into the SDLC rather than adding it late; target is vulnerability-free, confidently deployable software.</li>
+        <li><strong>NIST SDLC approach</strong>: consider security in initiation, development, implementation, operation, and disposal.</li>
+        <li>Design principles include <strong>simple design</strong>, <strong>permission not exclusion</strong>, <strong>complete mediation</strong>, <strong>two-key protection</strong>, <strong>least privilege</strong>, and usable protection mechanisms.</li>
+        <li>Mobile/portable security: tracking, remote wipe, disabling, physical protection, strong passwords, disabled auto-login, and backups.</li>
+        <li>Telework requires secure transmission, especially through <strong>VPNs</strong>, strong passwords, and authentication.</li>
+      </ul>
+    </article>
+
+    <article class="summary-card">
+      <h3>Lecture 6 - Threats and Malicious Software</h3>
+      <ul>
+        <li><strong>Attack</strong>: action exploiting a weakness; <strong>vulnerability</strong>: weakness in controls; <strong>threat</strong>: potential danger that always exists.</li>
+        <li>Software attacks may be <strong>technical</strong> (malware, DoS) or <strong>human-based</strong> (social engineering, phishing).</li>
+        <li><strong>Zero-day attack</strong>: uses malware or vulnerability not yet known/handled by defenses.</li>
+        <li>Hidden malware includes <strong>bots</strong>, <strong>spyware</strong>, and <strong>adware</strong>.</li>
+        <li><strong>Virus</strong>: malicious code requiring a host software environment; can spread via physical media, email attachments, or networks.</li>
+        <li><strong>Macro viruses</strong> use auto-executing macros; <strong>boot sector viruses</strong> target startup/boot files.</li>
+        <li><strong>Worm</strong>: self-replicates without another host program and may exhaust memory, disk, and bandwidth; Morris worm (1988) is a major case.</li>
+        <li><strong>Trojan horse</strong>: disguises itself as helpful software and reveals malicious behavior when activated, often releasing a back door.</li>
+        <li><strong>Polymorphic worm</strong>: advanced malware using multiple attack methods and changing external characteristics.</li>
+        <li><strong>DoS</strong> overwhelms a target with requests; <strong>DDoS</strong> launches coordinated streams from many compromised machines (bots/zombies).</li>
+        <li>Email attacks include <strong>spam</strong>, <strong>mail bombs</strong>, and <strong>phishing</strong>.</li>
+        <li>Communications interception attacks include <strong>sniffers, spoofing, pharming, man-in-the-middle, and TCP hijacking</strong>.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="cards" class="section">
+    <h2>Section 5: Quick Revision Cards</h2>
+    <div class="cards">
+      <article class="flashcard"><div class="term">CIA Triad</div><div>Confidentiality, integrity, and availability: the core objectives of information security.</div></article>
+      <article class="flashcard"><div class="term">McCumber Cube</div><div>CNSS/NSTISSC model linking security goals, information states, and safeguards.</div></article>
+      <article class="flashcard"><div class="term">Threat</div><div>A potential danger or entity that represents constant danger to an asset.</div></article>
+      <article class="flashcard"><div class="term">Vulnerability</div><div>A weakness in a system, often caused by missing or weak controls.</div></article>
+      <article class="flashcard"><div class="term">Attack</div><div>An action that exploits a vulnerability to harm or steal information.</div></article>
+      <article class="flashcard"><div class="term">Top-Down Security</div><div>Security implementation initiated and supported by upper management.</div></article>
+      <article class="flashcard"><div class="term">Tailgating</div><div>Unauthorized person follows an authorized user through a physical control point.</div></article>
+      <article class="flashcard"><div class="term">Mantrap</div><div>Small controlled enclosure with separate entry/exit that verifies access before entry.</div></article>
+      <article class="flashcard"><div class="term">UPS</div><div>Power supply that keeps systems online long enough for safe shutdown during outages.</div></article>
+      <article class="flashcard"><div class="term">Trap Door</div><div>Hidden or purposeful shortcut that bypasses normal security checks.</div></article>
+      <article class="flashcard"><div class="term">OWASP Top 10</div><div>Common critical web application risks such as injection, XSS, and broken access control.</div></article>
+      <article class="flashcard"><div class="term">Software Assurance</div><div>Methodology for integrating security into the software development lifecycle.</div></article>
+      <article class="flashcard"><div class="term">Least Privilege</div><div>Users and programs receive only the permissions required to perform their tasks.</div></article>
+      <article class="flashcard"><div class="term">Virus</div><div>Malicious code that requires a host program and replicates as the host is shared.</div></article>
+      <article class="flashcard"><div class="term">Worm</div><div>Self-replicating malware that does not need a host program and can exhaust resources.</div></article>
+      <article class="flashcard"><div class="term">Trojan Horse</div><div>Malicious software disguised as useful software; often releases a payload/back door.</div></article>
+      <article class="flashcard"><div class="term">DDoS</div><div>Distributed denial-of-service attack launched from many compromised hosts.</div></article>
+      <article class="flashcard"><div class="term">Phishing</div><div>Deceptive attempt to obtain personal or financial information by posing as legitimate.</div></article>
+      <article class="flashcard"><div class="term">Pharming</div><div>Redirection of legitimate web traffic to illegitimate sites, often via DNS manipulation.</div></article>
+      <article class="flashcard"><div class="term">MITM</div><div>Man-in-the-middle attack where the attacker intercepts, reads, modifies, or redirects communication.</div></article>
+    </div>
+  </section>
+</main>
+<footer>
+  Prepared as an MSc-level midterm review based on Lectures 1-6 in Information Security and Security Software.
+</footer>
+<script>
+  function toggleAnswers(sectionId){
+    document.getElementById(sectionId).classList.toggle('hidden-answers');
+  }
+</script>
+</body>
+</html>

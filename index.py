@@ -9,7 +9,7 @@ st.set_page_config(
 
 # --- SIDEBAR NAVIGATION ---
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Select Exam:", ["Operating Systems Exam", "Object Oriented Programming Exam"])
+page = st.sidebar.radio("Select Exam:", ["Operating Systems Exam", "Object Oriented Programming Exam","Information Security Exam"])
 
 # --- PAGE 1: OS EXAM (index.html) ---
 if page == "Operating Systems Exam":
@@ -42,3 +42,24 @@ elif page == "Object Oriented Programming Exam":
     else:
         st.error("❌ oop.html not found. Make sure it's in the same folder as app.py.")
         st.info("💡 Tip: Save your AI agent's output as 'oop.html' in the same directory")
+
+# --- PAGE 3 : IS (cyper.html) ---
+elif page == "Information Security Exam":
+    st.title("📘 Information Security Exam")
+    st.caption("7 Lectures Summary | Cram Mode Active")
+    
+    cyper_html_path = Path("cyper.html")  # Your second HTML file
+    if cyper_html_path.exists():
+        cyper_content = cyper_html_path.read_text(encoding="utf-8")
+        components.html(
+            cyper_content,
+            height=900,
+            scrolling=True
+        )
+    else:
+        st.error("❌ oop.html not found. Make sure it's in the same folder as app.py.")
+        st.info("💡 Tip: Save your AI agent's output as 'oop.html' in the same directory")
+
+
+        
+
